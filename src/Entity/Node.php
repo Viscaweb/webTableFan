@@ -2,6 +2,8 @@
 
 namespace Visca\WebTableFan\Entity;
 
+use Visca\WebTableFan\Entity\Code\HtmlAttributes;
+
 /** Class Node. */
 class Node implements Comparable, Listening, Searchable
 {
@@ -26,10 +28,10 @@ class Node implements Comparable, Listening, Searchable
     /** @var int */
     protected $position;
 
-    /** @var  string[] */
+    /** @var string[] */
     protected $parentsIds;
 
-    /** @var  NodeMetaData|null */
+    /** @var NodeMetaData|null */
     protected $meta;
 
     /** @var Node|null Parent node */
@@ -252,11 +254,8 @@ class Node implements Comparable, Listening, Searchable
         return $this;
     }
 
-    /**
-     */
     public function getContent()
     {
-        return;
     }
 
     /**
@@ -289,8 +288,6 @@ class Node implements Comparable, Listening, Searchable
                 return $node;
             }
         }
-
-        return;
     }
 
     /**
