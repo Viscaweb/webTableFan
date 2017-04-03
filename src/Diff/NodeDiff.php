@@ -6,7 +6,7 @@ use Visca\WebTableFan\Entity\Node;
 use Visca\WebTableFan\Entity\NodeDifferences;
 
 /**
- * Class NodeDiff
+ * Class NodeDiff.
  */
 class NodeDiff
 {

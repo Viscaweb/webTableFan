@@ -57,7 +57,6 @@ class NodeDiffTest extends PHPUnit_Framework_TestCase
     {
         $node = new Node('rootA');
 
-
         $childLevel1 = new Node('child1');
         $childLevel0 = new Node('child0');
         $childLevel0->addChild($childLevel1);
