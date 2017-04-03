@@ -34,7 +34,7 @@ class TableNode extends Node
     }
 
     /**
-     * @return \Visca\Bundle\LicomBundle\Events\Event[]
+     * @return
      */
     public function getListeningEvents()
     {
