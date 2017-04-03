@@ -5,7 +5,7 @@
          xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.0/phpunit.xsd"
          backupGlobals="false"
          colors="true"
-         bootstrap="vendor/autoload.php"
+         bootstrap="./vendor/autoload.php"
          beStrictAboutTestsThatDoNotTestAnything="true">
 
     <testsuites>
@@ -13,9 +13,4 @@
             <directory>../src/Tests/Unit</directory>
         </testsuite>
     </testsuites>
-
-    <!-- Speed Trap Listener to know which tests are the slowest ones -->
-    <listeners>
-        <listener class="JohnKary\PHPUnit\Listener\SpeedTrapListener" />
-    </listeners>
 </phpunit>
