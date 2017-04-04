@@ -3,8 +3,12 @@
 namespace Visca\WebTableFan\Tests\Unit;
 
 use PHPUnit_Framework_TestCase;
+use Visca\WebTableFan\Diff\Entity\NodeAdded;
+use Visca\WebTableFan\Diff\Entity\NodeDeleted;
+use Visca\WebTableFan\Diff\Entity\NodeUpdated;
 use Visca\WebTableFan\Diff\NodeDiff;
 use Visca\WebTableFan\Entity\Node;
+use Visca\WebTableFan\Entity\NodeDifferences;
 
 /**
  * Class NodeDiffTest.
@@ -26,52 +30,82 @@ class NodeDiffTest extends PHPUnit_Framework_TestCase
 
         $diff = $this->nodeDiff->diff($node, clone $node);
 
-        $this->assertEquals([], $diff->getAdded());
-        $this->assertEquals([], $diff->getUpdated());
-        $this->assertEquals([], $diff->getDeleted());
+        $this->assertDifferences([], [], [], $diff);
     }
 
     /**
      * @test
      */
-    public function when_a_node_has_an_extra_child_an_added_node_should_be_detected()
+    public function append_node_to_empty_tree_a_nodeaddition_should_be_detected_prepended()
     {
-        $node = new Node('rootA');
+        $treeA = new Node('rootA');
 
         $child = new Node('child');
-        $nodeB = new Node('rootA');
-        $nodeB->addChild($child);
-        $nodeB->addChild($child);
+        $treeB = new Node('rootA');
+        $treeB->addChild($child);
 
-        $diff = $this->nodeDiff->diff($node, $nodeB);
+        $diff = $this->nodeDiff->diff($treeA, $treeB);
 
-        $this->assertEquals(['child' => $child], $diff->getAdded());
-        $this->assertEquals([], $diff->getUpdated());
-        $this->assertEquals([], $diff->getDeleted());
+        $this->assertDifferences(
+            [new NodeAdded($child, 'rootA', NodeAdded::PREPEND)],
+            [],
+            [],
+            $diff
+        );
     }
+
+    /**
+     * @test
+     */
+    public function add_node_to_not_empty_tree_a_nodeaddition_should_be_detected_appended()
+    {
+        $child = new Node('child');
+        $treeA = new Node('rootA');
+        $treeA->addChild($child);
+
+
+        $treeB = clone $treeA;
+        $endChild = new Node('end_child');
+        $treeB->addChild($endChild);
+
+        $diff = $this->nodeDiff->diff($treeA, $treeB);
+
+        $this->assertDifferences(
+            [new NodeAdded($endChild, 'child', NodeAdded::AFTER)],
+            [],
+            [],
+            $diff
+        );
+    }
+
 
     /**
      * @test
      */
     public function when_a_node_has_two_new_depths_of_children_only_parent_node_should_be_added_to_added_list()
     {
-        $node = new Node('rootA');
-
-        $childLevel1 = new Node('child1');
+        $treeA = new Node('rootA');
+        // --------------------------
+        $treeB = new Node('rootA');
         $childLevel0 = new Node('child0');
+        $treeB->addChild($childLevel0);
+        $childLevel1 = new Node('child1');
         $childLevel0->addChild($childLevel1);
-        $nodeB = new Node('rootA');
-        $nodeB->addChild($childLevel0);
 
-        $diff = $this->nodeDiff->diff($node, $nodeB);
+        $diff = $this->nodeDiff->diff($treeA, $treeB);
 
-        $this->assertEquals(['child0' => $childLevel0], $diff->getAdded());
+        $this->assertDifferences(
+            [new NodeAdded($childLevel0, 'rootA', NodeAdded::PREPEND)],
+            [],
+            [],
+            $diff
+        );
     }
 
     /**
      * @test
      */
-    public function when_a_node_has_been_removed_a_deleted_node_should_be_detected()
+    public function remove_node_from_tree_node_deleted_should_be_detected()
     {
         $child = new Node('child');
 
@@ -82,9 +116,12 @@ class NodeDiffTest extends PHPUnit_Framework_TestCase
 
         $diff = $this->nodeDiff->diff($node, $nodeB);
 
-        $this->assertEquals([], $diff->getAdded());
-        $this->assertEquals([], $diff->getUpdated());
-        $this->assertEquals(['child' => $child], $diff->getDeleted());
+        $this->assertDifferences(
+            [],
+            [],
+            [new NodeDeleted($child)],
+            $diff
+        );
     }
 
     /**
@@ -104,9 +141,20 @@ class NodeDiffTest extends PHPUnit_Framework_TestCase
 
         $diff = $this->nodeDiff->diff($node, $nodeB);
 
-        $this->assertEquals([], $diff->getAdded());
-        $this->assertEquals(['child' => $childChanged], $diff->getUpdated());
-        $this->assertEquals([], $diff->getDeleted());
+        $this->assertDifferences([], [new NodeUpdated($childChanged)], [], $diff);
+    }
+
+    /**
+     * @param NodeAdded[]     $nodesAdded
+     * @param NodeUpdated[]   $nodesUpdated
+     * @param NodeDeleted[]   $nodesDeleted
+     * @param NodeDifferences $diff
+     */
+    protected function assertDifferences($nodesAdded, $nodesUpdated, $nodesDeleted, NodeDifferences $diff)
+    {
+        $this->assertEquals($nodesAdded, $diff->getAdded());
+        $this->assertEquals($nodesUpdated, $diff->getUpdated());
+        $this->assertEquals($nodesDeleted, $diff->getDeleted());
     }
 
     /**

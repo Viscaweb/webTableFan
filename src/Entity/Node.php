@@ -25,9 +25,6 @@ class Node implements Comparable, Listening, Searchable
     /** @var Node|null */
     protected $rightSibling;
 
-    /** @var int */
-    protected $position;
-
     /** @var string[] */
     protected $parentsIds;
 
@@ -199,22 +196,6 @@ class Node implements Comparable, Listening, Searchable
     }
 
     /**
-     * @return int
-     */
-    public function getPosition()
-    {
-        return $this->position;
-    }
-
-    /**
-     * @param int $position
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-    }
-
-    /**
      * @return array
      */
     public function getParentIds()
@@ -316,6 +297,14 @@ class Node implements Comparable, Listening, Searchable
     public function getLeftSibling()
     {
         return $this->leftSibling;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasLeftSibling()
+    {
+        return ($this->leftSibling !== null);
     }
 
     /**

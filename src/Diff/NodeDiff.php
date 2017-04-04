@@ -2,6 +2,9 @@
 
 namespace Visca\WebTableFan\Diff;
 
+use Visca\WebTableFan\Diff\Entity\NodeAdded;
+use Visca\WebTableFan\Diff\Entity\NodeDeleted;
+use Visca\WebTableFan\Diff\Entity\NodeUpdated;
 use Visca\WebTableFan\Entity\Node;
 use Visca\WebTableFan\Entity\NodeDifferences;
 
@@ -71,33 +74,70 @@ class NodeDiff
 
         //---------------
 
-        $updatedNodes = $this->retrieveRealNodes($updatedFlattenNodes, false);
-        $addedNodes = $this->retrieveRealNodes($addedFlattenNodes);
-        $deletedNodes = $this->retrieveRealNodes($deletedFlattenNodes);
+        $updatedNodes = $this->getUpdatedNodes($updatedFlattenNodes);
+        $addedNodes = $this->getAddedNodes($addedFlattenNodes);
+        $deletedNodes = $this->getDeletedNodes($deletedFlattenNodes);
 
         return new NodeDifferences($updatedNodes, $addedNodes, $deletedNodes);
     }
 
     /**
      * @param array $flattenNodes
-     * @param bool  $ignoreIfParentAlreadyInserted
      *
-     * @return Node[]
+     * @return NodeAdded[]
      */
-    private function retrieveRealNodes($flattenNodes, $ignoreIfParentAlreadyInserted = true)
+    private function getAddedNodes($flattenNodes)
+    {
+        $addedNodes = [];
+
+        foreach ($flattenNodes as $key => $value) {
+            $node = $this->nodesCache[$key];
+            if ($this->parentWasAlreadyInserted($node, array_keys($flattenNodes))) {
+                continue;
+            }
+
+            list($injectionMethod, $position) = $this->calculatePosition($node);
+            $addedNodes[] = new NodeAdded($node, $position, $injectionMethod);
+        }
+
+        return $addedNodes;
+    }
+
+    /**
+     * @param array $flattenNodes
+     *
+     * @return NodeUpdated[]
+     */
+    private function getUpdatedNodes($flattenNodes)
     {
         $updatedNodes = [];
 
         foreach ($flattenNodes as $key => $value) {
             $node = $this->nodesCache[$key];
-            if ($ignoreIfParentAlreadyInserted && $this->parentWasAlreadyInserted($node, array_keys($flattenNodes))) {
-                continue;
-            }
-
-            $updatedNodes[$key] = $node;
+            $updatedNodes[] = new NodeUpdated($node);
         }
 
         return $updatedNodes;
+    }
+
+    /**
+     * @param $flattenNodes
+     *
+     * @return NodeDeleted[]
+     */
+    public function getDeletedNodes($flattenNodes)
+    {
+        $deletedNodes = [];
+        foreach ($flattenNodes as $key => $value) {
+            $node = $this->nodesCache[$key];
+            if ($this->parentWasAlreadyInserted($node, array_keys($flattenNodes))) {
+                continue;
+            }
+
+            $deletedNodes[] = new NodeDeleted($node);
+        }
+
+        return $deletedNodes;
     }
 
     /**
@@ -111,5 +151,23 @@ class NodeDiff
         $parentIds = $node->getParentIds();
 
         return !empty(array_intersect($nodeIds, $parentIds));
+    }
+
+    /**
+     * @param Node $node
+     *
+     * @return string
+     */
+    private function calculatePosition(Node $node)
+    {
+        if ($node->isRoot()) {
+            return ['append', 'top'];
+        }
+
+        if (!$node->hasLeftSibling()) {
+            return ['prepend', $node->getParent()->getId()];
+        }
+
+        return ['after', $node->getLeftSibling()->getId()];
     }
 }
