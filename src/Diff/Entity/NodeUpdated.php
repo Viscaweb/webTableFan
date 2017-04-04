@@ -5,7 +5,7 @@ namespace Visca\WebTableFan\Diff\Entity;
 use Visca\WebTableFan\Entity\Node;
 
 /**
- * Class NodeUpdated
+ * Class NodeUpdated.
  */
 class NodeUpdated
 {

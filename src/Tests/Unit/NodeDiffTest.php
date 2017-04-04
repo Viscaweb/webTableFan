@@ -63,7 +63,6 @@ class NodeDiffTest extends PHPUnit_Framework_TestCase
         $treeA = new Node('rootA');
         $treeA->addChild($child);
 
-
         $treeB = clone $treeA;
         $endChild = new Node('end_child');
         $treeB->addChild($endChild);
@@ -77,7 +76,6 @@ class NodeDiffTest extends PHPUnit_Framework_TestCase
             $diff
         );
     }
-
 
     /**
      * @test
