@@ -5,10 +5,10 @@ namespace Visca\WebTableFan\Tests\Unit;
 use PHPUnit_Framework_TestCase;
 use Visca\WebTableFan\Diff\Entity\NodeAdded;
 use Visca\WebTableFan\Diff\Entity\NodeDeleted;
+use Visca\WebTableFan\Diff\Entity\NodeDifferences;
 use Visca\WebTableFan\Diff\Entity\NodeUpdated;
 use Visca\WebTableFan\Diff\NodeDiff;
 use Visca\WebTableFan\Entity\Node\Node;
-use Visca\WebTableFan\Diff\Entity\NodeDifferences;
 
 /**
  * Class NodeDiffTest.

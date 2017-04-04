@@ -33,9 +33,6 @@ class TableNode extends Node
         parent::__construct($id, $attributes, $children);
     }
 
-    /**
-     * 
-     */
     public function getListeningEvents()
     {
         return $this->events;

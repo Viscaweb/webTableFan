@@ -4,9 +4,9 @@ namespace Visca\WebTableFan\Entity\Node;
 
 class NodeMetaData
 {
-    /** @var  string */
+    /** @var string */
     private $type;
-    /** @var  array */
+    /** @var array */
     private $content;
 
     /**
