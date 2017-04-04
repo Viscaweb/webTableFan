@@ -304,7 +304,7 @@ class Node implements Comparable, Listening, Searchable
      */
     public function hasLeftSibling()
     {
-        return ($this->leftSibling !== null);
+        return $this->leftSibling !== null;
     }
 
     /**
