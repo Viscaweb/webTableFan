@@ -1,6 +1,6 @@
 <?php
 
-namespace Visca\WebTableFan\Entity;
+namespace Visca\WebTableFan\Entity\Node;
 
 use Visca\Bundle\LicomBundle\Events\Event;
 use Visca\WebTableFan\Entity\Code\HtmlAttributes;
@@ -34,7 +34,7 @@ class TableNode extends Node
     }
 
     /**
-     * @return
+     * 
      */
     public function getListeningEvents()
     {

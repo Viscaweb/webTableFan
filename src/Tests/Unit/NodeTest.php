@@ -3,7 +3,7 @@
 namespace Visca\WebTableFan\Tests\Unit;
 
 use PHPUnit_Framework_TestCase;
-use Visca\WebTableFan\Entity\Node;
+use Visca\WebTableFan\Entity\Node\Node;
 
 /**
  * Class NodeTest.

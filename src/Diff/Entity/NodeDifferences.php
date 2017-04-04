@@ -1,6 +1,8 @@
 <?php
 
-namespace Visca\WebTableFan\Entity;
+namespace Visca\WebTableFan\Diff\Entity;
+
+use Visca\WebTableFan\Entity\Node\Node;
 
 class NodeDifferences
 {

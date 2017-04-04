@@ -2,7 +2,7 @@
 
 namespace Visca\WebTableFan\Diff\Entity;
 
-use Visca\WebTableFan\Entity\Node;
+use Visca\WebTableFan\Entity\Node\Node;
 
 /**
  * Class NodeDeleted.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Visca\WebTableFan\Entity;
+namespace Visca\WebTableFan\Entity\Node;
 
 use Visca\WebTableFan\Entity\Code\HtmlAttributes;
 
