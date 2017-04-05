@@ -13,7 +13,7 @@ use Visca\WebTableFan\Tests\Fixtures\Entity\View\TableFooModel;
 use Visca\WebTableFan\Twig\Extensions\TableExtension;
 
 /**
- * Class TableHtmlTwigRendererTest
+ * Class TableHtmlTwigRendererTest.
  */
 class TableHtmlTwigRendererTest extends PHPUnit_Framework_TestCase
 {

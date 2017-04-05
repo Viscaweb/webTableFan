@@ -5,7 +5,7 @@ namespace Visca\WebTableFan\Renderer;
 use Visca\WebTableFan\Entity\View\TableModelInterface;
 
 /**
- * Class TableRendererInterface
+ * Class TableRendererInterface.
  */
 interface TableRendererInterface
 {

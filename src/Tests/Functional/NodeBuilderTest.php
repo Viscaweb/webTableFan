@@ -9,17 +9,9 @@ use Visca\WebTableFan\Entity\Node\CellNode;
 use Visca\WebTableFan\Entity\Node\RowNode;
 use Visca\WebTableFan\Entity\Node\TableNode;
 use Visca\WebTableFan\NodeBuilder;
-use Visca\WebTableFan\Renderer\Chain\TableComponentRendererChain;
 use Visca\WebTableFan\TableBrowser;
 use Visca\WebTableFan\Tests\Fixtures\ChainProvider;
-use Visca\WebTableFan\Tests\Fixtures\Entity\View\BodyFooModel;
-use Visca\WebTableFan\Tests\Fixtures\Entity\View\CellFooModel;
-use Visca\WebTableFan\Tests\Fixtures\Entity\View\RowFooModel;
 use Visca\WebTableFan\Tests\Fixtures\Entity\View\TableFooModel;
-use Visca\WebTableFan\Tests\Fixtures\Renderers\BodyFooRenderer;
-use Visca\WebTableFan\Tests\Fixtures\Renderers\CellFooRenderer;
-use Visca\WebTableFan\Tests\Fixtures\Renderers\RowFooRenderer;
-use Visca\WebTableFan\Tests\Fixtures\Renderers\TableFooRenderer;
 
 /**
  * Class NodeBuilderTest.

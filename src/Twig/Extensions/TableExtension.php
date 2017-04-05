@@ -6,7 +6,7 @@ use Twig_Environment;
 use Twig_Extension;
 
 /**
- * Class TableExtension
+ * Class TableExtension.
  */
 class TableExtension extends Twig_Extension
 {
@@ -120,4 +120,3 @@ class TableExtension extends Twig_Extension
         return '-'.strtolower($arguments[0]);
     }
 }
-

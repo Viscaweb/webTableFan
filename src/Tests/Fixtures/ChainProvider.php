@@ -14,7 +14,7 @@ use Visca\WebTableFan\Tests\Fixtures\Renderers\RowFooRenderer;
 use Visca\WebTableFan\Tests\Fixtures\Renderers\TableFooRenderer;
 
 /**
- * Class ChainProvider
+ * Class ChainProvider.
  */
 class ChainProvider
 {
