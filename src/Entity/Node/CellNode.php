@@ -2,7 +2,6 @@
 
 namespace Visca\WebTableFan\Entity\Node;
 
-use Visca\Bundle\SportBundle\Model\TableSystem\Nodes\Traits\MobileCheckerTrait;
 use Visca\WebTableFan\Entity\Code\HtmlAttributes;
 
 /**
@@ -10,11 +9,7 @@ use Visca\WebTableFan\Entity\Code\HtmlAttributes;
  */
 class CellNode extends Node
 {
-    use MobileCheckerTrait;
-
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $content;
 
     /**
