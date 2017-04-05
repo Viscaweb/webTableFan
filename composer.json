@@ -2,10 +2,15 @@
     "name": "viscaweb/webtablefan",
     "description": "Fine Grain Table Renderer",
     "type": "library",
+    "minimum-stability": "stable",
     "require-dev": {
         "phpunit/phpunit": "^5.0"
     },
-    "require": {},
+    "require": {
+        "twig/twig": "^1.33",
+        "symfony/event-dispatcher": "^v2.6.13",
+        "monolog/monolog": "^1.22"
+    },
     "autoload": {
         "psr-4": {
             "Visca\\WebTableFan\\": "src/"

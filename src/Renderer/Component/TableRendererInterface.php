@@ -5,9 +5,9 @@ namespace Visca\WebTableFan\Renderer\Component;
 use Visca\WebTableFan\Entity\View\TableModelInterface;
 
 /**
- * TableInterface.
+ * TableRendererInterface.
  */
-interface TableInterface extends NodeableInterface
+interface TableRendererInterface extends NodeableInterface
 {
     /**
      * @param TableModelInterface $tableModel Model

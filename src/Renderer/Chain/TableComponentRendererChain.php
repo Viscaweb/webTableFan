@@ -4,10 +4,10 @@ namespace Visca\WebTableFan\Renderer\Chain;
 
 use InvalidArgumentException;
 use OutOfRangeException;
-use Visca\WebTableFan\Renderer\Component\TableBodyInterface;
-use Visca\WebTableFan\Renderer\Component\TableCellInterface;
-use Visca\WebTableFan\Renderer\Component\TableInterface;
-use Visca\WebTableFan\Renderer\Component\TableRowInterface;
+use Visca\WebTableFan\Renderer\Component\BodyRendererInterface;
+use Visca\WebTableFan\Renderer\Component\CellRendererInterface;
+use Visca\WebTableFan\Renderer\Component\TableRendererInterface;
+use Visca\WebTableFan\Renderer\Component\RowRendererInterface;
 
 /**
  * Class TableComponentRendererChain.
@@ -15,14 +15,14 @@ use Visca\WebTableFan\Renderer\Component\TableRowInterface;
 class TableComponentRendererChain
 {
     /**
-     * @var TableInterface[]|TableBodyInterface[]|TableRowInterface[]|TableCellInterface[]
+     * @var TableRendererInterface[]|BodyRendererInterface[]|RowRendererInterface[]|CellRendererInterface[]
      */
     private $renderers;
 
     /**
      * Constructor.
      */
-    public function __construct(User ...$users)
+    public function __construct()
     {
         $this->renderers = [];
     }
@@ -46,10 +46,10 @@ class TableComponentRendererChain
             );
         }
 
-        if (!$renderer instanceof TableInterface
-            && !$renderer instanceof TableBodyInterface
-            && !$renderer instanceof TableRowInterface
-            && !$renderer instanceof TableCellInterface
+        if (!$renderer instanceof TableRendererInterface
+            && !$renderer instanceof BodyRendererInterface
+            && !$renderer instanceof RowRendererInterface
+            && !$renderer instanceof CellRendererInterface
         ) {
             throw new InvalidArgumentException(
                 'The table must be an instance of XXXInterface'
@@ -94,7 +94,7 @@ class TableComponentRendererChain
      *
      * @throws InvalidArgumentException
      *
-     * @return null|TableInterface|TableBodyInterface|TableRowInterface|TableCellInterface
+     * @return null|TableRendererInterface|BodyRendererInterface|RowRendererInterface|CellRendererInterface
      */
     public function get($id)
     {

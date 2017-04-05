@@ -5,9 +5,9 @@ namespace Visca\WebTableFan\Renderer\Component;
 use Visca\WebTableFan\Entity\View\BodyModelInterface;
 
 /**
- * TableBodyInterface.
+ * BodyRendererInterface.
  */
-interface TableBodyInterface extends NodeableInterface
+interface BodyRendererInterface extends NodeableInterface
 {
     /**
      * @param BodyModelInterface $model Model

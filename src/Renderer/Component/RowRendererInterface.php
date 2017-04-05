@@ -5,9 +5,9 @@ namespace Visca\WebTableFan\Renderer\Component;
 use Visca\WebTableFan\Entity\View\RowModelInterface;
 
 /**
- * TableRowInterface.
+ * RowRendererInterface.
  */
-interface TableRowInterface extends NodeableInterface
+interface RowRendererInterface extends NodeableInterface
 {
     /**
      * @param RowModelInterface $rowModel

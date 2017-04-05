@@ -16,6 +16,13 @@ class Node implements Comparable, Listening, Searchable
     /** @var string[] */
     protected $attributes;
 
+    /** @var bool */
+    protected $mobile;
+
+    // ------------------------
+    // Node Relations related
+    // ------------------------
+
     /** @var Node[] */
     protected $children = [];
 
@@ -235,8 +242,25 @@ class Node implements Comparable, Listening, Searchable
         return $this;
     }
 
-    public function getContent()
+
+    /**
+     * @return bool
+     */
+    public function isMobile()
     {
+        return $this->mobile;
+    }
+
+    /**
+     * @param bool $mobile
+     *
+     * @return Node
+     */
+    public function setMobile($mobile)
+    {
+        $this->mobile = $mobile;
+
+        return $this;
     }
 
     /**
