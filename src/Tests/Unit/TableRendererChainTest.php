@@ -8,7 +8,7 @@ use Visca\WebTableFan\Renderer\Chain\TableComponentRendererChain;
 use Visca\WebTableFan\Renderer\Component\TableInterface;
 
 /**
- * Class TableRendererChainTest
+ * Class TableRendererChainTest.
  */
 class TableRendererChainTest extends PHPUnit_Framework_TestCase
 {
