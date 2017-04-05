@@ -6,6 +6,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Visca\WebTableFan\Entity\Node\Node;
 use Visca\WebTableFan\NodeBuilder;
 use Visca\WebTableFan\Renderer\Chain\TableComponentRendererChain;
+use Visca\WebTableFan\Renderer\Optimizers\OptimizerInterface;
 
 /**
  * Class TableHtmlTwigRenderer.

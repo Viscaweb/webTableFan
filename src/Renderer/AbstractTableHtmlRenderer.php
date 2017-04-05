@@ -9,6 +9,7 @@ use Visca\WebTableFan\Entity\Node\TableNode;
 use Visca\WebTableFan\Entity\View\TableModelInterface;
 use Visca\WebTableFan\NodeBuilder;
 use Visca\WebTableFan\Renderer\Chain\TableComponentRendererChain;
+use Visca\WebTableFan\Renderer\Optimizers\OptimizerInterface;
 
 /**
  * Class AbstractTableHtmlRenderer.
