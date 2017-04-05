@@ -2,7 +2,6 @@
 
 namespace Visca\WebTableFan\Tests\Fixtures\Renderers;
 
-use Visca\WebTableFan\Entity\Node\Node;
 use Visca\WebTableFan\Entity\View\BodyModelInterface;
 use Visca\WebTableFan\Renderer\Component\BodyRendererInterface;
 use Visca\WebTableFan\Tests\Fixtures\Entity\Node\BodyFooNode;

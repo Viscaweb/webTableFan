@@ -60,10 +60,6 @@ class NodeBuilder
 
         $this
             ->tableBrowser
-//            ->setCallbackTable([$this, 'callbackTable'])
-//            ->setCallbackBody([$this, 'callbackBody'])
-//            ->setCallbackRow([$this, 'callbackRow'])
-//            ->setCallbackCell([$this, 'callbackCell'])
             ->browseAndApplyCallbacks(
                 $tableModel,
                 [$this, 'callbackTable'],

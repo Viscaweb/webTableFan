@@ -114,8 +114,6 @@ final class TableBrowser
                 }
             }
         }
-
-//        $this->resetCallbacks();
     }
 
     public function clearNodesCache()
@@ -123,54 +121,6 @@ final class TableBrowser
         $this->cacheTableBodies = [];
         $this->cacheBodyRows = [];
         $this->cacheRowCells = [];
-    }
-
-    /**
-     * @param callable|null $callbackCell
-     *
-     * @return TableBrowser
-     */
-    public function setCallbackCell($callbackCell)
-    {
-        $this->callbackCell = $callbackCell;
-
-        return $this;
-    }
-
-    /**
-     * @param callable|null $callbackRow
-     *
-     * @return TableBrowser
-     */
-    public function setCallbackRow($callbackRow)
-    {
-        $this->callbackRow = $callbackRow;
-
-        return $this;
-    }
-
-    /**
-     * @param callable|null $callbackBody
-     *
-     * @return TableBrowser
-     */
-    public function setCallbackBody($callbackBody)
-    {
-        $this->callbackBody = $callbackBody;
-
-        return $this;
-    }
-
-    /**
-     * @param callable|null $callbackTable
-     *
-     * @return TableBrowser
-     */
-    public function setCallbackTable($callbackTable)
-    {
-        $this->callbackTable = $callbackTable;
-
-        return $this;
     }
 
     /**
@@ -183,14 +133,6 @@ final class TableBrowser
         if ($callback !== null && is_callable($callback)) {
             $callback($richModel, $richModelRenderer);
         }
-    }
-
-    private function resetCallbacks()
-    {
-        $this->callbackTable = null;
-        $this->callbackBody = null;
-        $this->callbackRow = null;
-        $this->callbackCell = null;
     }
 
     /**
