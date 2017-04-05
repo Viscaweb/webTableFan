@@ -5,7 +5,7 @@ namespace Visca\WebTableFan\Tests\Unit;
 use PHPUnit_Framework_TestCase;
 use RuntimeException;
 use Visca\WebTableFan\Renderer\Chain\TableComponentRendererChain;
-use Visca\WebTableFan\Renderer\Component\TableInterface;
+use Visca\WebTableFan\Renderer\Component\TableRendererInterface;
 
 /**
  * Class TableRendererChainTest.
@@ -40,7 +40,7 @@ class TableRendererChainTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->existingService = $this->createMock(TableInterface::class);
+        $this->existingService = $this->createMock(TableRendererInterface::class);
 
         $this->tableChain = new TableComponentRendererChain();
         $this->tableChain->attach('existing', $this->existingService);
