@@ -1,0 +1,7 @@
+{% if groups|length > 0 %}
+    <colgroup>
+    {% for colClass in groups %}
+        <col class="{{ colClass }}">
+    {% endfor %}
+    </colgroup>
+{% endif %}

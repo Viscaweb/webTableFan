@@ -1,0 +1,38 @@
+{# Render Table #}
+{% spaceless %}
+    <div {{ widget_panel_attr_plain(table.attributes) }}>
+
+        {% set colGroups = table.colGroup %}
+        {% include '@ViscaTable/Extension/includes/renderColGroups.html.twig' with {groups: colGroups} %}
+
+        {# Render Bodies #}
+        {% for body in table.children %}
+            <ul{{ widget_panel_attr_plain(body.attributes) }}>
+
+                {# Render Rows #}
+                {% for row in body.children %}
+                    <li{{ widget_panel_attr_plain(row.attributes) }}>
+
+                        {% set lineHasLink = rowModel.rowLink is defined %}
+
+                        {% if lineHasLink %}
+                        <a href="{{ rowModel.rowLink }}">
+                        {% endif  %}
+
+                        {# Render Cells #}
+                        {% for cell in row.children %}
+                            <div{{ widget_panel_attr_plain(cell.attributes) }}>
+                                {{ cell.content | raw }}
+                            </div>
+                        {% endfor %}
+
+                        {% if lineHasLink %}
+                        </a>
+                        {% endif %}
+
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+{% endspaceless %}
