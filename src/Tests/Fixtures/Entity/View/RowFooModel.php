@@ -5,7 +5,7 @@ namespace Visca\WebTableFan\Tests\Fixtures\Entity\View;
 use Visca\WebTableFan\Entity\View\RowModelInterface;
 
 /**
- * Class RowFooModel
+ * Class RowFooModel.
  */
 class RowFooModel implements RowModelInterface
 {
@@ -16,6 +16,7 @@ class RowFooModel implements RowModelInterface
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getRowId()

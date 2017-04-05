@@ -6,7 +6,7 @@ use Visca\WebTableFan\Entity\Code\CellTypes;
 use Visca\WebTableFan\Entity\View\CellModelInterface;
 
 /**
- * Class CellFooModel
+ * Class CellFooModel.
  */
 class CellFooModel implements CellModelInterface
 {
@@ -28,7 +28,6 @@ class CellFooModel implements CellModelInterface
      */
     public function getCellColspan()
     {
-        return null;
     }
 
     /**
@@ -50,7 +49,6 @@ class CellFooModel implements CellModelInterface
      */
     public function getCellRowspan()
     {
-        return null;
     }
 
     /**

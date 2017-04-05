@@ -9,7 +9,7 @@ use Visca\WebTableFan\Tests\Fixtures\Entity\Node\BodyFooNode;
 use Visca\WebTableFan\Tests\Fixtures\Entity\View\RowFooModel;
 
 /**
- * Class BodyFooRenderer
+ * Class BodyFooRenderer.
  */
 class BodyFooRenderer implements BodyRendererInterface
 {

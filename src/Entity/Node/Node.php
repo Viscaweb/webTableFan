@@ -242,7 +242,6 @@ class Node implements Comparable, Listening, Searchable
         return $this;
     }
 
-
     /**
      * @return bool
      */

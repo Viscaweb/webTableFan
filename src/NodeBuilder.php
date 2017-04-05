@@ -3,7 +3,6 @@
 namespace Visca\WebTableFan;
 
 use Visca\WebTableFan\Entity\Node\Node;
-use Visca\WebTableFan\Entity\Node\TableNode;
 use Visca\WebTableFan\Entity\View\BodyModelInterface;
 use Visca\WebTableFan\Entity\View\CellModelInterface;
 use Visca\WebTableFan\Entity\View\RowModelInterface;
@@ -90,7 +89,7 @@ class NodeBuilder
     }
 
     /**
-     * @param BodyModelInterface         $bodyModel
+     * @param BodyModelInterface    $bodyModel
      * @param BodyRendererInterface $bodyRenderer
      */
     public function callbackBody(
@@ -104,7 +103,7 @@ class NodeBuilder
     }
 
     /**
-     * @param RowModelInterface         $rowModel
+     * @param RowModelInterface    $rowModel
      * @param RowRendererInterface $rowRenderer
      */
     public function callbackRow(
@@ -118,7 +117,7 @@ class NodeBuilder
     }
 
     /**
-     * @param CellModelInterface         $cellModel
+     * @param CellModelInterface    $cellModel
      * @param CellRendererInterface $cellRenderer
      */
     public function callbackCell(

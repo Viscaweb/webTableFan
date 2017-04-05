@@ -14,6 +14,7 @@ interface RowModelInterface
 
     /**
      * @return string
+     *
      * @deprecated
      */
     public function getRowId();

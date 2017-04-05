@@ -16,6 +16,7 @@ interface CellModelInterface
 
     /**
      * @deprecated Use getId()
+     *
      * @return string
      */
     public function getCellId();

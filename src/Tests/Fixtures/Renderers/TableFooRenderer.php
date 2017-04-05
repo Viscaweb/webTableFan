@@ -7,7 +7,7 @@ use Visca\WebTableFan\Tests\Fixtures\Entity\Node\TableFooNode;
 use Visca\WebTableFan\Tests\Fixtures\Entity\View\BodyFooModel;
 
 /**
- * Class TableFooRenderer
+ * Class TableFooRenderer.
  */
 class TableFooRenderer implements TableRendererInterface
 {

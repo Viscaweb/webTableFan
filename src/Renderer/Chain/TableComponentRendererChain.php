@@ -6,8 +6,8 @@ use InvalidArgumentException;
 use OutOfRangeException;
 use Visca\WebTableFan\Renderer\Component\BodyRendererInterface;
 use Visca\WebTableFan\Renderer\Component\CellRendererInterface;
-use Visca\WebTableFan\Renderer\Component\TableRendererInterface;
 use Visca\WebTableFan\Renderer\Component\RowRendererInterface;
+use Visca\WebTableFan\Renderer\Component\TableRendererInterface;
 
 /**
  * Class TableComponentRendererChain.

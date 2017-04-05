@@ -2,7 +2,6 @@
 
 namespace Visca\WebTableFan\Entity\Code;
 
-
 /**
  * Class BodyTypes.
  */

@@ -7,7 +7,7 @@ use Visca\WebTableFan\Tests\Fixtures\Entity\Node\RowFooNode;
 use Visca\WebTableFan\Tests\Fixtures\Entity\View\CellFooModel;
 
 /**
- * Class RowFooRenderer
+ * Class RowFooRenderer.
  */
 class RowFooRenderer implements RowRendererInterface
 {

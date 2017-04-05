@@ -5,7 +5,7 @@ namespace Visca\WebTableFan\Tests\Unit;
 use PHPUnit_Framework_TestCase;
 
 /**
- * Class TableBrowserTest
+ * Class TableBrowserTest.
  */
 class TableBrowserTest extends PHPUnit_Framework_TestCase
 {

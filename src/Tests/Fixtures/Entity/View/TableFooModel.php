@@ -5,7 +5,7 @@ namespace Visca\WebTableFan\Tests\Fixtures\Entity\View;
 use Visca\WebTableFan\Entity\View\TableModelInterface;
 
 /**
- * Class TableFooModel
+ * Class TableFooModel.
  */
 class TableFooModel implements TableModelInterface
 {

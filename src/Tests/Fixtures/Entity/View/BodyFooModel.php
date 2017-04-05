@@ -6,7 +6,7 @@ use Visca\WebTableFan\Entity\Code\BodyTypes;
 use Visca\WebTableFan\Entity\View\BodyModelInterface;
 
 /**
- * Class BodyFooModel
+ * Class BodyFooModel.
  */
 class BodyFooModel implements BodyModelInterface
 {

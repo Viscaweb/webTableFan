@@ -14,7 +14,9 @@ interface TableModelInterface
 
     /**
      * @todo Stop using this and use getId()
+     *
      * @deprecated use getId()
+     *
      * @return string
      */
     public function getName();
@@ -35,7 +37,9 @@ interface TableModelInterface
 
     /**
      * @todo Merge with getId()
+     *
      * @deprecated Use getId()
+     *
      * @return string
      */
     public function getMarkupId();

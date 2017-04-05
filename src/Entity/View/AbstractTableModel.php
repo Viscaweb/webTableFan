@@ -81,7 +81,7 @@ abstract class AbstractTableModel implements TableModelInterface
      *
      * @return $this
      */
-    public function setCssClasses(array $cssClasses = array())
+    public function setCssClasses(array $cssClasses = [])
     {
         $this->cssClasses = $cssClasses;
 
@@ -121,7 +121,7 @@ abstract class AbstractTableModel implements TableModelInterface
      *
      * @return $this
      */
-    public function setColGroups($colGroups = array())
+    public function setColGroups($colGroups = [])
     {
         $this->colGroups = $colGroups;
 

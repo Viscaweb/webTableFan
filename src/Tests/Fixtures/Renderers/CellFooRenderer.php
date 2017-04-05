@@ -6,11 +6,10 @@ use Visca\WebTableFan\Renderer\Component\CellRendererInterface;
 use Visca\WebTableFan\Tests\Fixtures\Entity\Node\CellFooNode;
 
 /**
- * Class CellFooRenderer
+ * Class CellFooRenderer.
  */
 class CellFooRenderer implements CellRendererInterface
 {
-
     /**
      * {@inheritdoc}
      */

@@ -75,11 +75,11 @@ final class TableBrowser
     }
 
     /**
-     * @param TableModelInterface $tableModel Table
-     * @param Callable            $tableCallback
-     * @param Callable            $bodyCallback
-     * @param Callable            $rowCallback
-     * @param Callable            $cellCallback
+     * @param TableModelInterface $tableModel    Table
+     * @param callable            $tableCallback
+     * @param callable            $bodyCallback
+     * @param callable            $rowCallback
+     * @param callable            $cellCallback
      */
     public function browseAndApplyCallbacks(
         TableModelInterface $tableModel,

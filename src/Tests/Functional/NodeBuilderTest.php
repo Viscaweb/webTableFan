@@ -21,7 +21,7 @@ use Visca\WebTableFan\Tests\Fixtures\Renderers\RowFooRenderer;
 use Visca\WebTableFan\Tests\Fixtures\Renderers\TableFooRenderer;
 
 /**
- * Class NodeBuilderTest
+ * Class NodeBuilderTest.
  */
 class NodeBuilderTest extends PHPUnit_Framework_TestCase
 {
@@ -36,7 +36,6 @@ class NodeBuilderTest extends PHPUnit_Framework_TestCase
         $tableModel = new TableFooModel();
 
         $node = $this->nodeBuilder->createNodesFromTable($tableModel);
-
 
         $this->assertInstanceOf(TableNode::class, $node);
 
@@ -56,7 +55,6 @@ class NodeBuilderTest extends PHPUnit_Framework_TestCase
             }
         }
     }
-
 
     // -------------------
 
