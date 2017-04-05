@@ -11,6 +11,7 @@ use Visca\WebTableFan\Entity\Node\TableNode;
 use Visca\WebTableFan\NodeBuilder;
 use Visca\WebTableFan\Renderer\Chain\TableComponentRendererChain;
 use Visca\WebTableFan\TableBrowser;
+use Visca\WebTableFan\Tests\Fixtures\ChainProvider;
 use Visca\WebTableFan\Tests\Fixtures\Entity\View\BodyFooModel;
 use Visca\WebTableFan\Tests\Fixtures\Entity\View\CellFooModel;
 use Visca\WebTableFan\Tests\Fixtures\Entity\View\RowFooModel;
@@ -63,24 +64,13 @@ class NodeBuilderTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $tablesRendererChain = new TableComponentRendererChain();
-        $tablesRendererChain->attach(TableFooModel::class, new TableFooRenderer());
-
-        $bodyRendererChain = new TableComponentRendererChain();
-        $bodyRendererChain->attach(BodyFooModel::class, new BodyFooRenderer());
-
-        $rowRendererChain = new TableComponentRendererChain();
-        $rowRendererChain->attach(RowFooModel::class, new RowFooRenderer());
-
-        $cellRendererChain = new TableComponentRendererChain();
-        $cellRendererChain->attach(CellFooModel::class, new CellFooRenderer());
-
+        $chainProvider = new ChainProvider();
         $logger = $this->createMock(Logger::class);
         $tableBrowser = new TableBrowser(
-            $tablesRendererChain,
-            $bodyRendererChain,
-            $rowRendererChain,
-            $cellRendererChain,
+            $chainProvider->getTableChain(),
+            $chainProvider->getBodyRendererChain(),
+            $chainProvider->getRowRendererChain(),
+            $chainProvider->getCellRendererChain(),
             $logger
         );
 

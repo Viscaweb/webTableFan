@@ -31,7 +31,7 @@ class CellFooRenderer implements CellRendererInterface
      */
     public function getContent($cellNode)
     {
-        // TODO: Implement getContent() method.
+        return 'CELL CONTENT';
     }
 
     /**
