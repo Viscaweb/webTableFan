@@ -3,6 +3,7 @@
 namespace Visca\WebTableFan\Diff\Entity;
 
 use Visca\WebTableFan\Entity\Node\Node;
+use Visca\WebTableFan\Entity\Node\TableNode;
 
 class NodeDifferences
 {
@@ -40,13 +41,17 @@ class NodeDifferences
     }
 
     /**
-     * @param Node $table
+     * @param Node $node
      *
      * @return string
      */
-    private function getTableIdentifier(Node $table)
+    private function getTableIdentifier(Node $node)
     {
-        return $table->getId().':'.$table->getVersion();
+        if ($node instanceof TableNode) {
+            return $node->getId().':'.$node->getVersion();
+        }
+
+        return $node->getId();
     }
 
     /**
