@@ -6,10 +6,10 @@
   "require-dev": {
   },
   "require": {
-    "symfony/event-dispatcher": "^v2.6.13",
     "monolog/monolog": "^1.22",
     "phpunit/phpunit": "4.8.*",
-    "twig/twig": "~1.12"
+    "twig/twig": "~1.12",
+    "symfony/event-dispatcher": "^v2.6.11"
   },
   "autoload": {
     "psr-4": {
