@@ -7,6 +7,9 @@ use Visca\WebTableFan\Entity\Node\CellNode;
 use Visca\WebTableFan\Entity\Node\Node;
 use Visca\WebTableFan\Entity\Node\TableNode;
 use Visca\WebTableFan\Entity\View\TableModelInterface;
+use Visca\WebTableFan\Events\Events;
+use Visca\WebTableFan\Events\TableNodesCreatedEvent;
+use Visca\WebTableFan\Events\TableRenderedEvent;
 use Visca\WebTableFan\NodeBuilder;
 use Visca\WebTableFan\Renderer\Chain\TableComponentRendererChain;
 use Visca\WebTableFan\Renderer\Optimizers\OptimizerInterface;
@@ -87,17 +90,12 @@ abstract class AbstractTableHtmlRenderer
     /**
      * Renders a table model.
      *
-     * @param WidgetInterface              $widget              Widget
-     * @param WidgetConfigurationInterface $widgetConfiguration Widget config.
      * @param TableModelInterface          $tableModel          The table object
      *
      * @return string The final table content
      */
-    public function renderTable(
-//        WidgetInterface $widget,
-//        WidgetConfigurationInterface $widgetConfiguration,
-        TableModelInterface $tableModel
-    ) {
+    public function renderTable(TableModelInterface $tableModel)
+    {
         /* Do some optimisations in here if required */
         $this->optimiseTable($tableModel);
 
@@ -106,37 +104,34 @@ abstract class AbstractTableHtmlRenderer
          * This method WILL NOT generate the content of each cell.
          */
         $tableNode = $this->nodeBuilder->createNodesFromTable($tableModel);
-/*
+
         $this->eventDispatcher->dispatch(
-            TableEvents::TABLE_NODES_CREATED,
+            Events::TABLE_NODES_CREATED,
             new TableNodesCreatedEvent(
-                $widget->getName(),
-                $widgetConfiguration,
                 $tableModel->getName(),
                 $tableNode->getId(),
                 $tableNode->getVersion(),
                 $tableNode
             )
         );
-*/
+
         /* Prepare the table for rendering */
         $this->renderCellsContent($tableNode);
 
         /* Render the final table */
 
         $response = $this->generateTableResponse($tableNode);
-/*
+
         $this->eventDispatcher->dispatch(
-            TableEvents::TABLE_RENDERED,
+            Events::TABLE_RENDERED,
             new TableRenderedEvent(
-                $widget->getName(),
-                $widgetConfiguration,
                 $tableModel->getName(),
+                $tableModel->getId(),
                 $tableNode->getVersion(),
                 $response
             )
         );
-*/
+
         return $response;
     }
 
@@ -144,21 +139,14 @@ abstract class AbstractTableHtmlRenderer
      * Same as `renderTable` but if NoDataFound exception is thrown it renders
      * and empty block.
      *
-     * @param WidgetInterface              $widget              Widget
-     * @param WidgetConfigurationInterface $widgetConfiguration Widget config.
      * @param TableModelInterface          $tableModel          Table model
      * @param string                       $view                Template to render in case of failure.
      *
      * @return string
      */
-    public function renderTableOrEmpty(
-//        WidgetInterface $widget,
-//        WidgetConfigurationInterface $widgetConfiguration,
-        TableModelInterface $tableModel,
-        $view
-    ) {
+    public function renderTableOrEmpty(TableModelInterface $tableModel, $view) {
         try {
-            $html = $this->renderTable(/*$widget, $widgetConfiguration, */$tableModel);
+            $html = $this->renderTable($tableModel);
         } catch (\Exception $e) {
             $html = $this->doRenderEmpty($view);
         }
@@ -179,9 +167,7 @@ abstract class AbstractTableHtmlRenderer
         }
 
         /* Set the hash as title in debug mode */
-
 //        $this->addDebugInformationInTitle($node);
-
         return $this->doRender($node);
     }
 

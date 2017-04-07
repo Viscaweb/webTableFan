@@ -3,6 +3,7 @@
 namespace Visca\WebTableFan;
 
 use Visca\WebTableFan\Entity\Node\Node;
+use Visca\WebTableFan\Entity\Node\TableNode;
 use Visca\WebTableFan\Entity\View\BodyModelInterface;
 use Visca\WebTableFan\Entity\View\CellModelInterface;
 use Visca\WebTableFan\Entity\View\RowModelInterface;
@@ -52,7 +53,7 @@ class NodeBuilder
      *
      * @param TableModelInterface $tableModel Table Model
      *
-     * @return Node
+     * @return TableNode
      */
     public function createNodesFromTable($tableModel)
     {
