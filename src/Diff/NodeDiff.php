@@ -30,7 +30,7 @@ class NodeDiff
         $flattenNodeA = $this->flatten($nodeA);
         $flattenNodeB = $this->flatten($nodeB);
 
-        $diff = $this->doDiff($flattenNodeA, $flattenNodeB);
+        $diff = $this->doDiff($nodeA, $nodeB, $flattenNodeA, $flattenNodeB);
 
         return $diff;
     }
@@ -54,12 +54,14 @@ class NodeDiff
     }
 
     /**
+     * @param Node $nodeA
+     * @param Node $nodeB
      * @param array $set1
      * @param array $set2
      *
      * @return NodeDifferences
      */
-    private function doDiff($set1, $set2)
+    private function doDiff(Node $nodeA, Node $nodeB, array $set1, array $set2)
     {
         //array_diff work at value level - not at key level - then the keys will be ignored for comparison
         $valuesInSet1ThatAreNotPresentInSet2 = array_diff_assoc($set1, $set2);
@@ -78,7 +80,7 @@ class NodeDiff
         $addedNodes = $this->getAddedNodes($addedFlattenNodes);
         $deletedNodes = $this->getDeletedNodes($deletedFlattenNodes);
 
-        return new NodeDifferences($updatedNodes, $addedNodes, $deletedNodes);
+        return new NodeDifferences($nodeA, $nodeB, $updatedNodes, $addedNodes, $deletedNodes);
     }
 
     /**
