@@ -90,7 +90,7 @@ abstract class AbstractTableHtmlRenderer
     /**
      * Renders a table model.
      *
-     * @param TableModelInterface          $tableModel          The table object
+     * @param TableModelInterface $tableModel The table object
      *
      * @return string The final table content
      */
@@ -139,12 +139,13 @@ abstract class AbstractTableHtmlRenderer
      * Same as `renderTable` but if NoDataFound exception is thrown it renders
      * and empty block.
      *
-     * @param TableModelInterface          $tableModel          Table model
-     * @param string                       $view                Template to render in case of failure.
+     * @param TableModelInterface $tableModel Table model
+     * @param string              $view       Template to render in case of failure.
      *
      * @return string
      */
-    public function renderTableOrEmpty(TableModelInterface $tableModel, $view) {
+    public function renderTableOrEmpty(TableModelInterface $tableModel, $view)
+    {
         try {
             $html = $this->renderTable($tableModel);
         } catch (\Exception $e) {

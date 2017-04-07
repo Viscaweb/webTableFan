@@ -6,7 +6,7 @@ use Composer\EventDispatcher\Event;
 use Visca\WebTableFan\Entity\Node\Node;
 
 /**
- * Class TableNodesCreatedEvent
+ * Class TableNodesCreatedEvent.
  */
 class TableNodesCreatedEvent extends Event
 {

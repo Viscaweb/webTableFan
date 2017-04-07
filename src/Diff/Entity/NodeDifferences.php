@@ -24,8 +24,8 @@ class NodeDifferences
     /**
      * NodeDifferences constructor.
      *
-     * @param Node $tableA
-     * @param Node $tableB
+     * @param Node   $tableA
+     * @param Node   $tableB
      * @param Node[] $updated
      * @param Node[] $added
      * @param Node[] $deleted

@@ -3,7 +3,7 @@
 namespace Visca\WebTableFan\Events;
 
 /**
- * Class Events
+ * Class Events.
  */
 class Events
 {

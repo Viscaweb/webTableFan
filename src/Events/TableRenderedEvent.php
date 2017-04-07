@@ -5,7 +5,7 @@ namespace Visca\WebTableFan\Events;
 use Composer\EventDispatcher\Event;
 
 /**
- * Class TableRenderedEvent
+ * Class TableRenderedEvent.
  */
 class TableRenderedEvent extends Event
 {

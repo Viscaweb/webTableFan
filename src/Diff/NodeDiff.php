@@ -54,8 +54,8 @@ class NodeDiff
     }
 
     /**
-     * @param Node $nodeA
-     * @param Node $nodeB
+     * @param Node  $nodeA
+     * @param Node  $nodeB
      * @param array $set1
      * @param array $set2
      *
