@@ -16,6 +16,9 @@ class TableHtmlTwigRenderer extends AbstractTableHtmlRenderer
     /** @var \Twig_Environment */
     protected $twig;
 
+    /** @var string */
+    private $templateFile;
+
     /**
      * TableHtmlTwigRenderer constructor.
      *
@@ -25,9 +28,11 @@ class TableHtmlTwigRenderer extends AbstractTableHtmlRenderer
      * @param TableComponentRendererChain $bodyRenderersChain
      * @param TableComponentRendererChain $rowRenderersChain
      * @param TableComponentRendererChain $cellRenderersChain
-     * @param bool                        $debugMode
      * @param OptimizerInterface[]        $optimizers
+     * @param bool                        $debugMode
      * @param \Twig_Environment           $twig
+     *
+     * @param                             $templateFile
      *
      * @internal param TableComponentRendererChain $tablesRendererChain
      * @internal param TableBodiesRendererChain $bodiesRenderersChain
@@ -41,7 +46,8 @@ class TableHtmlTwigRenderer extends AbstractTableHtmlRenderer
         TableComponentRendererChain $cellRenderersChain,
         $optimizers,
         $debugMode,
-        \Twig_Environment $twig
+        \Twig_Environment $twig,
+        $templateFile
     ) {
         parent::__construct(
             $eventDispatcher,
@@ -53,6 +59,7 @@ class TableHtmlTwigRenderer extends AbstractTableHtmlRenderer
             $debugMode,
             $optimizers
         );
+        $this->templateFile = $templateFile;
         $this->twig = $twig;
     }
 
@@ -62,7 +69,7 @@ class TableHtmlTwigRenderer extends AbstractTableHtmlRenderer
     public function doRender(Node $node)
     {
         return $this->twig->render(
-            'renderTable.html.twig',
+            $this->templateFile,
             ['table' => $node]
         );
     }
