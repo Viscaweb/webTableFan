@@ -32,7 +32,6 @@ class TableNodesCreatedEvent extends Event
      */
     public function __construct($tableName, $tableId, $tableVersion, Node $tableNode)
     {
-        parent::__construct(Events::TABLE_NODES_CREATED);
         $this->tableName = $tableName;
         $this->tableId = $tableId;
         $this->tableVersion = $tableVersion;

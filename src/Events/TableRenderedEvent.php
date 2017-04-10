@@ -31,7 +31,6 @@ class TableRenderedEvent extends Event
      */
     public function __construct($tableName, $tableId, $tableVersion, $tableRendered)
     {
-        parent::__construct(Events::TABLE_RENDERED);
         $this->tableName = $tableName;
         $this->tableId = $tableId;
         $this->tableVersion = $tableVersion;
