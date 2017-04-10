@@ -20,6 +20,7 @@ abstract class AbstractRowModel implements RowModelInterface
 
     /**
      * @deprecated Use `getId()` instead.
+     *
      * @return string
      */
     public function getRowId()
