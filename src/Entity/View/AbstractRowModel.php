@@ -13,9 +13,18 @@ abstract class AbstractRowModel implements RowModelInterface
     /**
      * @return string
      */
-    public function getRowId()
+    public function getId()
     {
         return '';
+    }
+
+    /**
+     * @deprecated Use `getId()` instead.
+     * @return string
+     */
+    public function getRowId()
+    {
+        return $this->getId();
     }
 
     /**

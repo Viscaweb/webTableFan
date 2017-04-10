@@ -52,7 +52,7 @@ class TableComponentRendererChain
             && !$renderer instanceof CellRendererInterface
         ) {
             throw new InvalidArgumentException(
-                'The table must be an instance of XXXInterface'
+                'The table must be an instance of TableRendererInterface, BodyRendererInterface, RowRendererInterface or CellRendererInterface.'
             );
         }
 
