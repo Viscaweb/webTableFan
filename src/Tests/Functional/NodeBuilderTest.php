@@ -57,7 +57,7 @@ class NodeBuilderTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $chainProvider = new ChainProvider();
-        $logger = $this->createMock(Logger::class);
+        $logger = $this->getMockBuilder(Logger::class)->getMock();
         $tableBrowser = new TableBrowser(
             $chainProvider->getTableChain(),
             $chainProvider->getBodyRendererChain(),

@@ -47,7 +47,7 @@ class TableHtmlTwigRendererTest extends PHPUnit_Framework_TestCase
     {
         $chainProvider = new ChainProvider();
         $eventDispatcher = new EventDispatcher();
-        $logger = $this->createMock(Logger::class);
+        $logger = $this->getMockBuilder(Logger::class)->getMock();
 
         $nodeBuilder = new NodeBuilder(
             new TableBrowser(
