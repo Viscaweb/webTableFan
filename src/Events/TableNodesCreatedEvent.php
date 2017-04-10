@@ -2,7 +2,7 @@
 
 namespace Visca\WebTableFan\Events;
 
-use Composer\EventDispatcher\Event;
+use Symfony\Component\EventDispatcher\Event;
 use Visca\WebTableFan\Entity\Node\Node;
 
 /**

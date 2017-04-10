@@ -27,18 +27,6 @@ final class TableBrowser
     /** @var TableComponentRendererChain */
     private $rowsRendererChain;
 
-    /** @var callable|null */
-    private $callbackTable;
-
-    /** @var callable|null */
-    private $callbackBody;
-
-    /** @var callable|null */
-    private $callbackRow;
-
-    /** @var callable|null */
-    private $callbackCell;
-
     /** @var array[] */
     private $cacheTableBodies = [];
 
