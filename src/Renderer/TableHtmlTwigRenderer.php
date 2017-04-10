@@ -31,7 +31,6 @@ class TableHtmlTwigRenderer extends AbstractTableHtmlRenderer
      * @param OptimizerInterface[]        $optimizers
      * @param bool                        $debugMode
      * @param \Twig_Environment           $twig
-     *
      * @param                             $templateFile
      *
      * @internal param TableComponentRendererChain $tablesRendererChain
