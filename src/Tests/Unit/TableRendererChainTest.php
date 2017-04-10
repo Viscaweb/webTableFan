@@ -23,7 +23,8 @@ class TableRendererChainTest extends PHPUnit_Framework_TestCase
      */
     public function when_no_renderers_defined_should_throw_exception()
     {
-        $this->expectException(RuntimeException::class);
+//        $this->expectException(RuntimeException::class);
+        $this->setExpectedException(RuntimeException::class);
         $this->tableChain->get('foo');
     }
 
@@ -40,7 +41,7 @@ class TableRendererChainTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->existingService = $this->createMock(TableRendererInterface::class);
+        $this->existingService = $this->getMockBuilder(TableRendererInterface::class)->getMock();
 
         $this->tableChain = new TableComponentRendererChain();
         $this->tableChain->attach('existing', $this->existingService);
