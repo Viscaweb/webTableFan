@@ -47,7 +47,7 @@ class TableHtmlTwigRendererTest extends PHPUnit_Framework_TestCase
     {
         $chainProvider = new ChainProvider();
         $eventDispatcher = new EventDispatcher();
-        $logger = $this->getMockBuilder(Logger::class)->getMock();
+        $logger = $this->getMockBuilder(Logger::class)->disableOriginalConstructor()->getMock();
 
         $nodeBuilder = new NodeBuilder(
             new TableBrowser(
@@ -71,7 +71,8 @@ class TableHtmlTwigRendererTest extends PHPUnit_Framework_TestCase
             $chainProvider->getCellRendererChain(),
             [],
             false,
-            $twig
+            $twig,
+            'renderTable.html.twig'
         );
     }
 }
