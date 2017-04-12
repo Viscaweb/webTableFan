@@ -13,15 +13,6 @@ interface TableModelInterface
     public function getId();
 
     /**
-     * @todo Stop using this and use getId()
-     *
-     * @deprecated use getId()
-     *
-     * @return string
-     */
-    public function getName();
-
-    /**
      * Gets list of CSS classes to apply to table.
      *
      * @return string[]

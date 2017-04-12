@@ -30,10 +30,11 @@ abstract class AbstractTableModel implements TableModelInterface
 
     /**
      * @param string $id
+     * @param string $name
      */
-    public function __construct($id = '')
+    public function __construct($id, $name = 'default')
     {
-        $this->id = $id;
+        $this->id = 'table-'.$id.'-'.$name;
     }
 
     /**
@@ -166,13 +167,5 @@ abstract class AbstractTableModel implements TableModelInterface
         $this->mobile = $mobile;
 
         return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'default';
     }
 }
