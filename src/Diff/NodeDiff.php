@@ -164,15 +164,15 @@ class NodeDiff
     private function calculatePosition(Node $node)
     {
         if ($node->isRoot()) {
-            return new NodePosition(NodePosition::APPEND, 'top'); //['append', 'top'];
+            return new NodePosition('top', NodePosition::APPEND); //['append', 'top'];
         }
 
         if (!$node->hasLeftSibling()) {
             //            return ['prepend', $node->getParent()->getId()];
-            return new NodePosition(NodePosition::PREPEND, $node->getParent()->getId());
+            return new NodePosition($node->getParent()->getId(), NodePosition::PREPEND);
         }
 
 //        return ['after', $node->getLeftSibling()->getId()];
-        return new NodePosition(NodePosition::AFTER, $node->getLeftSibling()->getId());
+        return new NodePosition($node->getLeftSibling()->getId(), NodePosition::AFTER);
     }
 }

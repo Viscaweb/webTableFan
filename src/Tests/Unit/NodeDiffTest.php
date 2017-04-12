@@ -6,6 +6,7 @@ use PHPUnit_Framework_TestCase;
 use Visca\WebTableFan\Diff\Entity\NodeAdded;
 use Visca\WebTableFan\Diff\Entity\NodeDeleted;
 use Visca\WebTableFan\Diff\Entity\NodeDifferences;
+use Visca\WebTableFan\Diff\Entity\NodePosition;
 use Visca\WebTableFan\Diff\Entity\NodeUpdated;
 use Visca\WebTableFan\Diff\NodeDiff;
 use Visca\WebTableFan\Entity\Node\Node;
@@ -47,7 +48,7 @@ class NodeDiffTest extends PHPUnit_Framework_TestCase
         $diff = $this->nodeDiff->diff($treeA, $treeB);
 
         $this->assertDifferences(
-            [new NodeAdded($child, 'rootA', NodeAdded::PREPEND)],
+            [new NodeAdded($child, new NodePosition('rootA', NodePosition::PREPEND))],
             [],
             [],
             $diff
@@ -70,7 +71,7 @@ class NodeDiffTest extends PHPUnit_Framework_TestCase
         $diff = $this->nodeDiff->diff($treeA, $treeB);
 
         $this->assertDifferences(
-            [new NodeAdded($endChild, 'child', NodeAdded::AFTER)],
+            [new NodeAdded($endChild, new NodePosition('child', NodePosition::AFTER))],
             [],
             [],
             $diff
@@ -93,7 +94,7 @@ class NodeDiffTest extends PHPUnit_Framework_TestCase
         $diff = $this->nodeDiff->diff($treeA, $treeB);
 
         $this->assertDifferences(
-            [new NodeAdded($childLevel0, 'rootA', NodeAdded::PREPEND)],
+            [new NodeAdded($childLevel0, new NodePosition('rootA', NodePosition::PREPEND))],
             [],
             [],
             $diff
