@@ -164,11 +164,11 @@ class NodeDiff
     private function calculatePosition(Node $node)
     {
         if ($node->isRoot()) {
-            return new NodePosition(NodePosition::APPEND, 'top');//['append', 'top'];
+            return new NodePosition(NodePosition::APPEND, 'top'); //['append', 'top'];
         }
 
         if (!$node->hasLeftSibling()) {
-//            return ['prepend', $node->getParent()->getId()];
+            //            return ['prepend', $node->getParent()->getId()];
             return new NodePosition(NodePosition::PREPEND, $node->getParent()->getId());
         }
 

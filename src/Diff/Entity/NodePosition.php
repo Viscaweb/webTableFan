@@ -3,7 +3,7 @@
 namespace Visca\WebTableFan\Diff\Entity;
 
 /**
- * Class NodePosition
+ * Class NodePosition.
  */
 class NodePosition
 {
