@@ -25,13 +25,4 @@ interface TableModelInterface
      * @return string[]
      */
     public function getColGroups();
-
-    /**
-     * @todo Merge with getId()
-     *
-     * @deprecated Use getId()
-     *
-     * @return string
-     */
-    public function getMarkupId();
 }

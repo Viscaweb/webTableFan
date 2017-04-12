@@ -7,12 +7,6 @@ namespace Visca\WebTableFan\Entity\View;
  */
 abstract class AbstractTableModel implements TableModelInterface
 {
-    /**
-     * @var string
-     * @depreacted
-     */
-    protected $markupId;
-
     /** @var string[] */
     protected $cssClasses;
 
@@ -125,26 +119,6 @@ abstract class AbstractTableModel implements TableModelInterface
     public function setColGroups($colGroups = [])
     {
         $this->colGroups = $colGroups;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMarkupId()
-    {
-        return $this->markupId;
-    }
-
-    /**
-     * @param string $markupId
-     *
-     * @return $this
-     */
-    public function setMarkupId($markupId)
-    {
-        $this->markupId = $markupId;
 
         return $this;
     }
