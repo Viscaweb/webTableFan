@@ -13,13 +13,13 @@ class NodeDifferences
     /** @var string */
     protected $tableBIdentifier;
 
-    /** @var Node[] */
+    /** @var NodeAdded[] */
     protected $updated;
 
-    /** @var Node[] */
+    /** @var NodeUpdated[] */
     protected $added;
 
-    /** @var Node[] */
+    /** @var NodeDeleted[] */
     protected $deleted;
 
     /**
@@ -27,9 +27,9 @@ class NodeDifferences
      *
      * @param Node   $tableA
      * @param Node   $tableB
-     * @param Node[] $updated
-     * @param Node[] $added
-     * @param Node[] $deleted
+     * @param NodeAdded[] $updated
+     * @param NodeUpdated[] $added
+     * @param NodeDeleted[] $deleted
      */
     public function __construct(Node $tableA, Node $tableB, array $updated = [], array $added = [], array $deleted = [])
     {
@@ -55,7 +55,7 @@ class NodeDifferences
     }
 
     /**
-     * @return Node[]
+     * @return NodeUpdated[]
      */
     public function getUpdated()
     {
@@ -63,7 +63,7 @@ class NodeDifferences
     }
 
     /**
-     * @return Node[]
+     * @return NodeAdded[]
      */
     public function getAdded()
     {
@@ -71,7 +71,7 @@ class NodeDifferences
     }
 
     /**
-     * @return Node[]
+     * @return NodeDeleted[]
      */
     public function getDeleted()
     {
