@@ -9,9 +9,6 @@ use Symfony\Component\EventDispatcher\Event;
  */
 class TableRenderedEvent extends Event
 {
-    /** @var string @deprecated */
-    private $tableName;
-
     /** @var string */
     private $tableId;
 
@@ -24,25 +21,15 @@ class TableRenderedEvent extends Event
     /**
      * TableRenderedEvent constructor.
      *
-     * @param string $tableName
      * @param string $tableId
      * @param string $tableVersion
      * @param string $tableRendered
      */
-    public function __construct($tableName, $tableId, $tableVersion, $tableRendered)
+    public function __construct($tableId, $tableVersion, $tableRendered)
     {
-        $this->tableName = $tableName;
         $this->tableId = $tableId;
         $this->tableVersion = $tableVersion;
         $this->tableRendered = $tableRendered;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTableName()
-    {
-        return $this->tableName;
     }
 
     /**

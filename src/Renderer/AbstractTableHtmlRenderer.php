@@ -17,7 +17,7 @@ use Visca\WebTableFan\Renderer\Optimizers\OptimizerInterface;
 /**
  * Class AbstractTableHtmlRenderer.
  */
-abstract class AbstractTableHtmlRenderer
+abstract class AbstractTableHtmlRenderer implements TableRendererInterface
 {
     /** @var NodeBuilder */
     protected $nodeBuilder;
@@ -88,11 +88,7 @@ abstract class AbstractTableHtmlRenderer
     }
 
     /**
-     * Renders a table model.
-     *
-     * @param TableModelInterface $tableModel The table object
-     *
-     * @return string The final table content
+     * {@inheritdoc}
      */
     public function renderTable(TableModelInterface $tableModel)
     {
@@ -108,7 +104,6 @@ abstract class AbstractTableHtmlRenderer
         $this->eventDispatcher->dispatch(
             Events::TABLE_NODES_CREATED,
             new TableNodesCreatedEvent(
-                $tableModel->getName(),
                 $tableNode->getId(),
                 $tableNode->getVersion(),
                 $tableNode
@@ -125,7 +120,6 @@ abstract class AbstractTableHtmlRenderer
         $this->eventDispatcher->dispatch(
             Events::TABLE_RENDERED,
             new TableRenderedEvent(
-                $tableModel->getName(),
                 $tableModel->getId(),
                 $tableNode->getVersion(),
                 $response
@@ -136,20 +130,14 @@ abstract class AbstractTableHtmlRenderer
     }
 
     /**
-     * Same as `renderTable` but if NoDataFound exception is thrown it renders
-     * and empty block.
-     *
-     * @param TableModelInterface $tableModel Table model
-     * @param string              $view       Template to render in case of failure.
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    public function renderTableOrEmpty(TableModelInterface $tableModel, $view)
+    public function renderTableOrEmpty(TableModelInterface $tableModel, $emptyRender)
     {
         try {
             $html = $this->renderTable($tableModel);
         } catch (\Exception $e) {
-            $html = $this->doRenderEmpty($view);
+            $html = $this->doRenderEmpty($emptyRender);
         }
 
         return $html;
