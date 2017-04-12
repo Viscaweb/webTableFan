@@ -9,31 +9,22 @@ use Visca\WebTableFan\Entity\Node\Node;
  */
 class NodeAdded
 {
-    const AFTER = 'after';
-    const APPEND = 'append';
-    const PREPEND = 'prepend';
-
     /** @var Node */
     protected $node;
 
-    /** @var string */
-    protected $locationId;
-
-    /** @var string append|prepend */
-    protected $injectionMethod;
+    /** @var NodePosition */
+    protected $nodePosition;
 
     /**
      * NodeAdded constructor.
      *
-     * @param Node   $node
-     * @param string $locationId
-     * @param string $injectionMethod
+     * @param Node         $node
+     * @param NodePosition $nodePosition
      */
-    public function __construct(Node $node, $locationId, $injectionMethod)
+    public function __construct(Node $node, NodePosition $nodePosition)
     {
         $this->node = $node;
-        $this->locationId = $locationId;
-        $this->injectionMethod = $injectionMethod;
+        $this->nodePosition = $nodePosition;
     }
 
     /**
@@ -45,18 +36,10 @@ class NodeAdded
     }
 
     /**
-     * @return string
+     * @return NodePosition
      */
-    public function getLocationId()
+    public function getNodePosition()
     {
-        return $this->locationId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getInjectionMethod()
-    {
-        return $this->injectionMethod;
+        return $this->nodePosition;
     }
 }

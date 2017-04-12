@@ -8,10 +8,10 @@ use Visca\WebTableFan\Entity\Node\TableNode;
 class NodeDifferences
 {
     /** @var string */
-    protected $tableAIdentifier;
+    protected $beforeTableId;
 
     /** @var string */
-    protected $tableBIdentifier;
+    protected $afterTableId;
 
     /** @var NodeAdded[] */
     protected $updated;
@@ -33,8 +33,8 @@ class NodeDifferences
      */
     public function __construct(Node $tableA, Node $tableB, array $updated = [], array $added = [], array $deleted = [])
     {
-        $this->tableAIdentifier = $this->getTableIdentifier($tableA);
-        $this->tableBIdentifier = $this->getTableIdentifier($tableB);
+        $this->beforeTableId = $this->getTableIdentifier($tableA);
+        $this->afterTableId = $this->getTableIdentifier($tableB);
         $this->updated = $updated;
         $this->added = $added;
         $this->deleted = $deleted;
@@ -76,5 +76,13 @@ class NodeDifferences
     public function getDeleted()
     {
         return $this->deleted;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAfterTableId()
+    {
+        return $this->afterTableId;
     }
 }

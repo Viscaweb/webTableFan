@@ -5,6 +5,7 @@ namespace Visca\WebTableFan\Diff;
 use Visca\WebTableFan\Diff\Entity\NodeAdded;
 use Visca\WebTableFan\Diff\Entity\NodeDeleted;
 use Visca\WebTableFan\Diff\Entity\NodeDifferences;
+use Visca\WebTableFan\Diff\Entity\NodePosition;
 use Visca\WebTableFan\Diff\Entity\NodeUpdated;
 use Visca\WebTableFan\Entity\Node\Node;
 
@@ -98,8 +99,8 @@ class NodeDiff
                 continue;
             }
 
-            list($injectionMethod, $position) = $this->calculatePosition($node);
-            $addedNodes[] = new NodeAdded($node, $position, $injectionMethod);
+            $nodePosition = $this->calculatePosition($node);
+            $addedNodes[] = new NodeAdded($node, $nodePosition);
         }
 
         return $addedNodes;
@@ -158,18 +159,20 @@ class NodeDiff
     /**
      * @param Node $node
      *
-     * @return string
+     * @return NodePosition
      */
     private function calculatePosition(Node $node)
     {
         if ($node->isRoot()) {
-            return ['append', 'top'];
+            return new NodePosition(NodePosition::APPEND, 'top');//['append', 'top'];
         }
 
         if (!$node->hasLeftSibling()) {
-            return ['prepend', $node->getParent()->getId()];
+//            return ['prepend', $node->getParent()->getId()];
+            return new NodePosition(NodePosition::PREPEND, $node->getParent()->getId());
         }
 
-        return ['after', $node->getLeftSibling()->getId()];
+//        return ['after', $node->getLeftSibling()->getId()];
+        return new NodePosition(NodePosition::AFTER, $node->getLeftSibling()->getId());
     }
 }
