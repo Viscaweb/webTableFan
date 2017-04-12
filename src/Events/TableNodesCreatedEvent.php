@@ -10,9 +10,6 @@ use Visca\WebTableFan\Entity\Node\Node;
  */
 class TableNodesCreatedEvent extends Event
 {
-    /** @var string */
-    private $tableId;
-
     /** @var Node */
     private $tableNode;
 
@@ -22,23 +19,13 @@ class TableNodesCreatedEvent extends Event
     /**
      * TableNodesCreatedEvent constructor.
      *
-     * @param string $tableId
      * @param string $tableVersion
      * @param Node   $tableNode
      */
-    public function __construct($tableId, $tableVersion, Node $tableNode)
+    public function __construct(Node $tableNode, $tableVersion)
     {
-        $this->tableId = $tableId;
-        $this->tableVersion = $tableVersion;
         $this->tableNode = $tableNode;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTableId()
-    {
-        return $this->tableId;
+        $this->tableVersion = $tableVersion;
     }
 
     /**

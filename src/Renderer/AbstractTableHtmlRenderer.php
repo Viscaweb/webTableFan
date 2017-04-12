@@ -104,9 +104,8 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
         $this->eventDispatcher->dispatch(
             Events::TABLE_NODES_CREATED,
             new TableNodesCreatedEvent(
-                $tableNode->getId(),
-                $tableNode->getVersion(),
-                $tableNode
+                $tableNode,
+                $tableNode->getVersion()
             )
         );
 

@@ -24,11 +24,11 @@ abstract class AbstractTableModel implements TableModelInterface
 
     /**
      * @param string $id
-     * @param string $name
+     * @param string $variantId
      */
-    public function __construct($id, $name = 'default')
+    public function __construct($id, $variantId = 'default')
     {
-        $this->id = 'table-'.$id.'-'.$name;
+        $this->id = 'table-'.$id.'-'.$variantId;
     }
 
     /**
