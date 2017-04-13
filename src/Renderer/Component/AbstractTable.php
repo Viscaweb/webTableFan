@@ -7,7 +7,6 @@ use Visca\WebTableFan\Entity\Node\TableNode;
 use Visca\WebTableFan\Entity\View\AbstractTableModel;
 use Visca\WebTableFan\Entity\View\TableModelInterface;
 
-
 /**
  * Class AbstractTable.
  */
