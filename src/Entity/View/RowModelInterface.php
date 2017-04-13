@@ -13,13 +13,6 @@ interface RowModelInterface
     public function getId();
 
     /**
-     * @return string
-     *
-     * @deprecated
-     */
-    public function getRowId();
-
-    /**
      * @return string[]
      */
     public function getCssClasses();
