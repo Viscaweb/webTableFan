@@ -41,7 +41,6 @@ abstract class AbstractRowModel implements RowModelInterface
         return $this->cssClasses;
     }
 
-
     /**
      * {@inheritdoc}
      */
