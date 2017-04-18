@@ -2,12 +2,12 @@
 
 namespace Visca\WebTableFan\Tests\Fixtures\Entity\View;
 
-use Visca\WebTableFan\Entity\View\RowModelInterface;
+use Visca\WebTableFan\Entity\View\AbstractRowModel;
 
 /**
  * Class RowFooModel.
  */
-class RowFooModel implements RowModelInterface
+class RowFooModel extends AbstractRowModel
 {
     public function getId()
     {

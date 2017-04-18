@@ -3,12 +3,12 @@
 namespace Visca\WebTableFan\Tests\Fixtures\Entity\View;
 
 use Visca\WebTableFan\Entity\Code\BodyTypes;
-use Visca\WebTableFan\Entity\View\BodyModelInterface;
+use Visca\WebTableFan\Entity\View\AbstractBodyModel;
 
 /**
  * Class BodyFooModel.
  */
-class BodyFooModel implements BodyModelInterface
+class BodyFooModel extends AbstractBodyModel
 {
     /** @var string */
     protected $bodyType;
