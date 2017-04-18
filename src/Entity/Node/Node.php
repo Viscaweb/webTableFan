@@ -292,8 +292,6 @@ class Node implements Comparable, Listening, Searchable
                 return $node;
             }
         }
-
-        return null;
     }
 
     /**

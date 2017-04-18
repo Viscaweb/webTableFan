@@ -53,8 +53,9 @@ class NodeBuilder
      *
      * @param TableModelInterface $tableModel Table Model
      *
-     * @return TableNode
      * @throws \InvalidArgumentException
+     *
+     * @return TableNode
      */
     public function createNodesFromTable($tableModel)
     {

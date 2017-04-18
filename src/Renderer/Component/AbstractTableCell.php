@@ -19,6 +19,7 @@ abstract class AbstractTableCell implements CellRendererInterface
 
     /**
      * {@inheritdoc}
+     *
      * @throws \RuntimeException
      */
     public function getNode($cellModel)

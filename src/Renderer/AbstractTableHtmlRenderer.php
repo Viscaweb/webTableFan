@@ -161,6 +161,7 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
 
     /**
      * @param Node $nodes
+     *
      * @throws \InvalidArgumentException
      * @throws \Exception
      */

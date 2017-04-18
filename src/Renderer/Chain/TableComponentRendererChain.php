@@ -96,9 +96,9 @@ class TableComponentRendererChain
      * @param string|mixed $id Id of the service
      *
      * @throws InvalidArgumentException
+     * @throws \RuntimeException
      *
      * @return null|TableRendererInterface|BodyRendererInterface|RowRendererInterface|CellRendererInterface
-     * @throws \RuntimeException
      */
     public function get($id)
     {

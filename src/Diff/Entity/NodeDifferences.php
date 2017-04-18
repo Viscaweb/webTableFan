@@ -3,7 +3,6 @@
 namespace Visca\WebTableFan\Diff\Entity;
 
 use Visca\WebTableFan\Entity\Node\Node;
-use Visca\WebTableFan\Entity\Node\TableNode;
 
 class NodeDifferences
 {
