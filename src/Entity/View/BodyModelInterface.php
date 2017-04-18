@@ -35,4 +35,16 @@ interface BodyModelInterface
      * @return $this
      */
     public function setCssClasses($cssClasses);
+
+    /**
+     * @return bool
+     */
+    public function isMobile();
+
+    /**
+     * @param bool $isMobile
+     *
+     * @return $this
+     */
+    public function setMobile($isMobile);
 }

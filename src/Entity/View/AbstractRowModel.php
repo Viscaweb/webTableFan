@@ -10,6 +10,9 @@ abstract class AbstractRowModel implements RowModelInterface
     /** @var string[] */
     protected $cssClasses;
 
+    /** @var bool */
+    protected $mobile;
+
     /**
      * @return string
      */
@@ -36,5 +39,24 @@ abstract class AbstractRowModel implements RowModelInterface
     public function getCssClasses()
     {
         return $this->cssClasses;
+    }
+
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isMobile()
+    {
+        return $this->mobile;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setMobile($isMobile)
+    {
+        $this->mobile = $isMobile;
+
+        return $this;
     }
 }

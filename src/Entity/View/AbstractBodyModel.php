@@ -2,17 +2,13 @@
 
 namespace Visca\WebTableFan\Entity\View;
 
-use Visca\Bundle\SportBundle\Model\TableSystem\Nodes\Traits\MobileCheckerTrait;
-use Visca\Bundle\TableBundle\Model\Body\BodyModelInterface;
-use Visca\Bundle\TableBundle\Model\Enum\BodyTypes;
+use Visca\WebTableFan\Entity\Code\BodyTypes;
 
 /**
  * Class AbstractBodyModel.
  */
 abstract class AbstractBodyModel implements BodyModelInterface
 {
-    use MobileCheckerTrait;
-
     /** @var string */
     protected $id;
 
@@ -21,6 +17,9 @@ abstract class AbstractBodyModel implements BodyModelInterface
 
     /** @var string[] */
     protected $cssClasses;
+
+    /** @var bool */
+    protected $mobile;
 
     /**
      * AbstractBodyModel constructor.
@@ -82,6 +81,24 @@ abstract class AbstractBodyModel implements BodyModelInterface
     public function setCssClasses($cssClasses)
     {
         $this->cssClasses = $cssClasses;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isMobile()
+    {
+        return $this->mobile;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setMobile($isMobile)
+    {
+        $this->mobile = $isMobile;
 
         return $this;
     }
