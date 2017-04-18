@@ -15,7 +15,7 @@ abstract class AbstractTableBody implements BodyRendererInterface
      */
     public function getIdentifier($model)
     {
-        return 'body_'.uniqid(str_replace('\\', '-', get_class($model)));
+        return 'body_'.uniqid(str_replace('\\', '-', get_class($model)), true);
     }
 
     /**

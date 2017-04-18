@@ -10,13 +10,16 @@ use Visca\WebTableFan\Entity\View\CellModelInterface;
  */
 class CellFooModel implements CellModelInterface
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getId()
     {
         return 'cell-tag';
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getCellId()
     {
@@ -24,18 +27,14 @@ class CellFooModel implements CellModelInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function getCellColspan()
     {
     }
 
     /**
-     * Sets number of columns this cell will span to.
-     *
-     * @param int $cellColspan Number of columns.
-     *
-     * @return $this
+     * {@inheritdoc}
      */
     public function setCellColspan($cellColspan)
     {
@@ -43,20 +42,14 @@ class CellFooModel implements CellModelInterface
     }
 
     /**
-     * Returns number of rows this cell will span to.
-     *
-     * @return int
+     * {@inheritdoc}
      */
     public function getCellRowspan()
     {
     }
 
     /**
-     * Set number of rows this cell will span to.
-     *
-     * @param int $cellRowspan
-     *
-     * @return $this
+     * {@inheritdoc}
      */
     public function setCellRowspan($cellRowspan)
     {
@@ -64,9 +57,7 @@ class CellFooModel implements CellModelInterface
     }
 
     /**
-     * Returns cell type.
-     *
-     * @return CellTypes::TD | CellTypes::TH
+     * {@inheritdoc}
      */
     public function getCellType()
     {
@@ -74,9 +65,7 @@ class CellFooModel implements CellModelInterface
     }
 
     /**
-     * @param string $cellType self::TH|self::TD
-     *
-     * @return $this
+     * {@inheritdoc}
      */
     public function setCellType($cellType)
     {

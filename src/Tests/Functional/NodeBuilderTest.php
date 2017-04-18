@@ -24,7 +24,7 @@ class NodeBuilderTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function testNodeStructureIsBuilt()
+    public function test_node_structure_is_built()
     {
         $tableModel = new TableFooModel();
 

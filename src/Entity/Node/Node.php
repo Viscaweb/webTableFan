@@ -283,7 +283,7 @@ class Node implements Comparable, Listening, Searchable
      */
     public function findById($id)
     {
-        if ($this->id == $id) {
+        if ($this->id === $id) {
             return $this;
         }
 
@@ -292,6 +292,8 @@ class Node implements Comparable, Listening, Searchable
                 return $node;
             }
         }
+
+        return null;
     }
 
     /**

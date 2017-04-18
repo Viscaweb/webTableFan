@@ -31,7 +31,7 @@ class TableComponentRendererChain
      * Attach an entity factory to the chain.
      *
      * @param string $id       Id of the service
-     * @param object $renderer Renderer object
+     * @param mixed  $renderer Renderer object
      *
      * @throws InvalidArgumentException
      */
@@ -63,6 +63,9 @@ class TableComponentRendererChain
      * Detach a entityFactory from the chain.
      *
      * @param string $id Id of the service
+     *
+     * @throws \InvalidArgumentException
+     * @throws \OutOfRangeException
      */
     public function detach($id)
     {
@@ -90,11 +93,12 @@ class TableComponentRendererChain
     /**
      * Get an entityFactory.
      *
-     * @param string|object $id Id of the service
+     * @param string|mixed $id Id of the service
      *
      * @throws InvalidArgumentException
      *
      * @return null|TableRendererInterface|BodyRendererInterface|RowRendererInterface|CellRendererInterface
+     * @throws \RuntimeException
      */
     public function get($id)
     {

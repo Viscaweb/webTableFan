@@ -63,6 +63,6 @@ class NodeTest extends PHPUnit_Framework_TestCase
 
         $hash = $node->getHash();
         $hashB = $nodeB->getHash();
-        $this->assertEquals(true, ($hash === $hashB));
+        $this->assertEquals(true, $hash === $hashB);
     }
 }

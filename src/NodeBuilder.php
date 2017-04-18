@@ -54,11 +54,10 @@ class NodeBuilder
      * @param TableModelInterface $tableModel Table Model
      *
      * @return TableNode
+     * @throws \InvalidArgumentException
      */
     public function createNodesFromTable($tableModel)
     {
-        $nodeRoot = null;
-
         $this
             ->tableBrowser
             ->browseAndApplyCallbacks(

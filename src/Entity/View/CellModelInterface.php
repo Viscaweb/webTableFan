@@ -54,7 +54,7 @@ interface CellModelInterface
     /**
      * Returns cell type.
      *
-     * @return CellTypes::TD | CellTypes::TH
+     * @return string CellTypes::TD | CellTypes::TH
      */
     public function getCellType();
 

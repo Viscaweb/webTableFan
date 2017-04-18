@@ -150,7 +150,7 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
     public function generateTableResponse(Node $node)
     {
         /* Inject the version as attribute */
-        if (is_callable([$node, 'getVersion']) && $node instanceof TableNode) {
+        if ($node instanceof TableNode && is_callable([$node, 'getVersion'])) {
             $node->setAttribute('data-version', $node->getVersion());
         }
 
@@ -161,6 +161,8 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
 
     /**
      * @param Node $nodes
+     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     private function renderCellsContent(Node $nodes)
     {

@@ -116,7 +116,7 @@ abstract class AbstractTableModel implements TableModelInterface
      *
      * @return $this
      */
-    public function setColGroups($colGroups = [])
+    public function setColGroups(array $colGroups = [])
     {
         $this->colGroups = $colGroups;
 

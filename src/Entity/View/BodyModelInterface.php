@@ -13,7 +13,7 @@ interface BodyModelInterface
     public function getId();
 
     /**
-     * @return
+     * @return string
      */
     public function getBodyType();
 

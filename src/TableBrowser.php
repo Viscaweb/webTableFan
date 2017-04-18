@@ -68,6 +68,9 @@ final class TableBrowser
      * @param callable            $bodyCallback
      * @param callable            $rowCallback
      * @param callable            $cellCallback
+     *
+     * @throws \InvalidArgumentException
+     * @throws |Exception
      */
     public function browseAndApplyCallbacks(
         TableModelInterface $tableModel,

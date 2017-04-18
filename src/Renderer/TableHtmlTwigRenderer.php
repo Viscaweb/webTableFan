@@ -64,6 +64,9 @@ class TableHtmlTwigRenderer extends AbstractTableHtmlRenderer
 
     /**
      * {@inheritdoc}
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Syntax
      */
     public function doRender(Node $node)
     {
@@ -75,6 +78,9 @@ class TableHtmlTwigRenderer extends AbstractTableHtmlRenderer
 
     /**
      * {@inheritdoc}
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function doRenderEmpty($view)
     {

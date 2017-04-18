@@ -14,7 +14,7 @@ abstract class AbstractTableRow implements RowRendererInterface
      */
     public function getIdentifier($rowModel)
     {
-        return 'row_'.uniqid(str_replace('\\', '-', get_class($rowModel)));
+        return 'row_'.uniqid(str_replace('\\', '-', get_class($rowModel)), true);
     }
 
     /**

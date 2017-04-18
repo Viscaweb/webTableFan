@@ -14,7 +14,7 @@ class BodyFooModel implements BodyModelInterface
     protected $bodyType;
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getId()
     {
@@ -22,7 +22,7 @@ class BodyFooModel implements BodyModelInterface
     }
 
     /**
-     * @return
+     * {@inheritdoc}
      */
     public function getBodyType()
     {
@@ -30,9 +30,7 @@ class BodyFooModel implements BodyModelInterface
     }
 
     /**
-     * @param $bodyType
-     *
-     * @return mixed
+     * {@inheritdoc}
      */
     public function setBodyType($bodyType)
     {
@@ -40,7 +38,7 @@ class BodyFooModel implements BodyModelInterface
     }
 
     /**
-     * @return string[]
+     * {@inheritdoc}
      */
     public function getCssClasses()
     {
@@ -48,9 +46,7 @@ class BodyFooModel implements BodyModelInterface
     }
 
     /**
-     * @param string[] $cssClasses
-     *
-     * @return $this
+     * {@inheritdoc}
      */
     public function setCssClasses($cssClasses)
     {

@@ -14,11 +14,12 @@ abstract class AbstractTableCell implements CellRendererInterface
      */
     public function getIdentifier($cell)
     {
-        return 'cell_'.uniqid(str_replace('\\', '-', get_class($cell)));
+        return 'cell_'.uniqid(str_replace('\\', '-', get_class($cell)), true);
     }
 
     /**
      * {@inheritdoc}
+     * @throws \RuntimeException
      */
     public function getNode($cellModel)
     {
