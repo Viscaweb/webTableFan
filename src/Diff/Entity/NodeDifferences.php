@@ -25,33 +25,19 @@ class NodeDifferences
     /**
      * NodeDifferences constructor.
      *
-     * @param Node          $tableA
-     * @param Node          $tableB
+     * @param Node          $tableAId
+     * @param Node          $tableBId
      * @param NodeAdded[]   $updated
      * @param NodeUpdated[] $added
      * @param NodeDeleted[] $deleted
      */
-    public function __construct(Node $tableA, Node $tableB, array $updated = [], array $added = [], array $deleted = [])
+    public function __construct($tableAId, $tableBId, array $updated = [], array $added = [], array $deleted = [])
     {
-        $this->beforeTableId = $this->getTableIdentifier($tableA);
-        $this->afterTableId = $this->getTableIdentifier($tableB);
+        $this->beforeTableId = $tableAId;
+        $this->afterTableId = $tableBId;
         $this->updated = $updated;
         $this->added = $added;
         $this->deleted = $deleted;
-    }
-
-    /**
-     * @param Node $node
-     *
-     * @return string
-     */
-    private function getTableIdentifier(Node $node)
-    {
-        if ($node instanceof TableNode) {
-            return $node->getId().':'.$node->getVersion();
-        }
-
-        return $node->getId();
     }
 
     /**

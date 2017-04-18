@@ -31,9 +31,7 @@ class NodeDiff
         $flattenNodeA = $this->flatten($nodeA);
         $flattenNodeB = $this->flatten($nodeB);
 
-        $diff = $this->doDiff($nodeA, $nodeB, $flattenNodeA, $flattenNodeB);
-
-        return $diff;
+        return $this->doDiff($nodeA, $nodeB, $flattenNodeA, $flattenNodeB);
     }
 
     /**
@@ -81,7 +79,7 @@ class NodeDiff
         $addedNodes = $this->getAddedNodes($addedFlattenNodes);
         $deletedNodes = $this->getDeletedNodes($deletedFlattenNodes);
 
-        return new NodeDifferences($nodeA, $nodeB, $updatedNodes, $addedNodes, $deletedNodes);
+        return new NodeDifferences($nodeA->getId(), $nodeB->getId(), $updatedNodes, $addedNodes, $deletedNodes);
     }
 
     /**
@@ -124,7 +122,7 @@ class NodeDiff
     }
 
     /**
-     * @param $flattenNodes
+     * @param array $flattenNodes
      *
      * @return NodeDeleted[]
      */
