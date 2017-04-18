@@ -24,14 +24,18 @@ abstract class AbstractBodyModel implements BodyModelInterface
     /**
      * AbstractBodyModel constructor.
      *
+     * @param string $id
      * @param string $bodyType
      */
-    public function __construct($bodyType = BodyTypes::TBODY)
+    public function __construct($id, $bodyType = BodyTypes::TBODY)
     {
+        $this->id = $id;
         $this->bodyType = $bodyType;
     }
 
-    /** @return string */
+    /**
+     * {@inheritdoc}
+     */
     public function getId()
     {
         return $this->id;
