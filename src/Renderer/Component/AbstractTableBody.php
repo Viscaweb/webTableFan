@@ -13,7 +13,7 @@ abstract class AbstractTableBody implements BodyRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getIdentifier($model)
+    final public function getIdentifier($model)
     {
         return $model->getId();
 //        return 'body_'.uniqid(str_replace('\\', '-', get_class($model)), true);

@@ -15,7 +15,7 @@ abstract class AbstractTable implements TableRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getIdentifier($tableModel)
+    final public function getIdentifier($tableModel)
     {
         return $tableModel->getId();
     }
