@@ -69,7 +69,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return NodeMetaData|null
      */
-    public function getMeta(): NodeMetaData
+    public function getMeta(): ?NodeMetaData
     {
         return $this->meta;
     }
