@@ -14,6 +14,9 @@ abstract class AbstractCellModel implements CellModelInterface
     /** @var string */
     protected $cellId;
 
+    /** @var string */
+    protected $id;
+
     /** @var int */
     protected $cellColspan;
 
@@ -65,9 +68,17 @@ abstract class AbstractCellModel implements CellModelInterface
     /**
      * @return string
      */
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
     public function getCellId(): string
     {
-        return $this->cellId;
+        return $this->id;
     }
 
     /**
@@ -77,7 +88,7 @@ abstract class AbstractCellModel implements CellModelInterface
      */
     public function setCellId(string $cellId)
     {
-        $this->cellId = $cellId;
+        $this->id = $cellId;
 
         return $this;
     }
@@ -172,30 +183,6 @@ abstract class AbstractCellModel implements CellModelInterface
     public function setMobile(bool $mobile)
     {
         $this->mobile = $mobile;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     *
-     * @todo Check if we really need this method or getCellId()
-     */
-    public function getId(): string
-    {
-        return $this->cellId;
-    }
-
-    /**
-     * @param string $cellId
-     *
-     * @todo Check if we really need this method or setCellId()
-     *
-     * @return AbstractCellModel
-     */
-    public function setId(string $cellId)
-    {
-        $this->cellId = $cellId;
 
         return $this;
     }
