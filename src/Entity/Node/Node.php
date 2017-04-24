@@ -6,7 +6,6 @@ namespace Visca\WebTableFan\Entity\Node;
 
 use Visca\WebTableFan\Entity\Code\HtmlAttributes;
 
-
 /** Class Node. */
 class Node implements Comparable, Listening, Searchable
 {

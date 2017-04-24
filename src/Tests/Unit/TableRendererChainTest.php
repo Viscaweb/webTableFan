@@ -3,7 +3,6 @@
 namespace Visca\WebTableFan\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use PHPUnit_Framework_TestCase;
 use RuntimeException;
 use Visca\WebTableFan\Renderer\Chain\TableComponentRendererChain;
 use Visca\WebTableFan\Renderer\Component\TableRendererInterface;
