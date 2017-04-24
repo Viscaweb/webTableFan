@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Entity\Node;
 
 use Visca\Bundle\LicomBundle\Events\Event;
@@ -24,7 +26,7 @@ class TableNode extends Node
      * @param array   $children
      * @param Event[] $events
      */
-    public function __construct($id, array $attributes = [], array $children = [], $events = [])
+    public function __construct(string $id, array $attributes = [], array $children = [], $events = [])
     {
         $this->setType('table');
         $attributes[HtmlAttributes::MARKUPID] = $id;
@@ -33,7 +35,10 @@ class TableNode extends Node
         parent::__construct($id, $attributes, $children);
     }
 
-    public function getListeningEvents()
+    /**
+     * @return array|Event[]
+     */
+    public function getListeningEvents(): array
     {
         return $this->events;
     }
@@ -41,7 +46,7 @@ class TableNode extends Node
     /**
      * @return string[]
      */
-    public function getColGroup()
+    public function getColGroup(): array
     {
         return $this->colGroup;
     }
@@ -49,9 +54,9 @@ class TableNode extends Node
     /**
      * @param string[] $colGroup
      *
-     * @return $this
+     * @return self
      */
-    public function setColGroup($colGroup)
+    public function setColGroup($colGroup): self
     {
         $this->colGroup = $colGroup;
 
@@ -61,7 +66,7 @@ class TableNode extends Node
     /**
      * @return string
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         return $this->getTreeHash();
     }

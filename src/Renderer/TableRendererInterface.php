@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Renderer;
 
 use Visca\WebTableFan\Entity\View\TableModelInterface;
@@ -16,7 +18,7 @@ interface TableRendererInterface
      *
      * @return string
      */
-    public function renderTable(TableModelInterface $tableModel);
+    public function renderTable(TableModelInterface $tableModel): string;
 
     /**
      * Same as `renderTable` but if NoDataFound exception is thrown it renders
@@ -27,5 +29,5 @@ interface TableRendererInterface
      *
      * @return string
      */
-    public function renderTableOrEmpty(TableModelInterface $tableModel, $emptyRender);
+    public function renderTableOrEmpty(TableModelInterface $tableModel, $emptyRender): string;
 }

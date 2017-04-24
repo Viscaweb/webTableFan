@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Entity\View;
 
 use Visca\WebTableFan\Entity\Code\CellTypes;
@@ -43,7 +45,7 @@ abstract class AbstractCellModel implements CellModelInterface
     /**
      * @return bool
      */
-    public function isStrongCell()
+    public function isStrongCell(): bool
     {
         return $this->strongCell;
     }
@@ -53,7 +55,7 @@ abstract class AbstractCellModel implements CellModelInterface
      *
      * @return $this
      */
-    public function setStrongCell($strongCell)
+    public function setStrongCell(bool $strongCell)
     {
         $this->strongCell = $strongCell;
 
@@ -63,7 +65,7 @@ abstract class AbstractCellModel implements CellModelInterface
     /**
      * @return string
      */
-    public function getCellId()
+    public function getCellId(): string
     {
         return $this->cellId;
     }
@@ -73,7 +75,7 @@ abstract class AbstractCellModel implements CellModelInterface
      *
      * @return $this
      */
-    public function setCellId($cellId)
+    public function setCellId(string $cellId)
     {
         $this->cellId = $cellId;
 
@@ -83,7 +85,7 @@ abstract class AbstractCellModel implements CellModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getCellColspan()
+    public function getCellColspan(): int
     {
         return $this->cellColspan;
     }
@@ -91,7 +93,7 @@ abstract class AbstractCellModel implements CellModelInterface
     /**
      * {@inheritdoc}
      */
-    public function setCellColspan($cellColspan)
+    public function setCellColspan(int $cellColspan): self
     {
         $this->cellColspan = $cellColspan;
 
@@ -101,17 +103,15 @@ abstract class AbstractCellModel implements CellModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getCellRowspan()
+    public function getCellRowspan(): int
     {
         return $this->cellRowspan;
     }
 
     /**
-     * @param int $cellRowspan
-     *
-     * @return $this
+     * {@inheritdoc}
      */
-    public function setCellRowspan($cellRowspan)
+    public function setCellRowspan(int $cellRowspan): self
     {
         $this->cellRowspan = $cellRowspan;
 
@@ -119,21 +119,17 @@ abstract class AbstractCellModel implements CellModelInterface
     }
 
     /**
-     * Returns cell type.
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    public function getCellType()
+    public function getCellType(): string
     {
         return $this->cellType;
     }
 
     /**
-     * @param string $cellType self::TH|self::TD
-     *
-     * @return $this
+     * {@inheritdoc}
      */
-    public function setCellType($cellType)
+    public function setCellType(string $cellType): self
     {
         $this->cellType = $cellType;
 
@@ -153,7 +149,7 @@ abstract class AbstractCellModel implements CellModelInterface
      *
      * @return $this
      */
-    public function setHtmlClass($htmlClass)
+    public function setHtmlClass(string $htmlClass)
     {
         $this->htmlClass = $htmlClass;
 
@@ -163,7 +159,7 @@ abstract class AbstractCellModel implements CellModelInterface
     /**
      * @return bool
      */
-    public function isMobile()
+    public function isMobile(): bool
     {
         return $this->mobile;
     }
@@ -173,7 +169,7 @@ abstract class AbstractCellModel implements CellModelInterface
      *
      * @return $this
      */
-    public function setMobile($mobile)
+    public function setMobile(bool $mobile)
     {
         $this->mobile = $mobile;
 
@@ -185,19 +181,19 @@ abstract class AbstractCellModel implements CellModelInterface
      *
      * @todo Check if we really need this method or getCellId()
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->cellId;
     }
 
     /**
-     * @param int $cellId
+     * @param string $cellId
      *
      * @todo Check if we really need this method or setCellId()
      *
      * @return AbstractCellModel
      */
-    public function setId($cellId)
+    public function setId(string $cellId)
     {
         $this->cellId = $cellId;
 

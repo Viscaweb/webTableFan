@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Entity\View;
 
 /**
@@ -10,19 +12,19 @@ interface TableModelInterface
     /**
      * @return string
      */
-    public function getId();
+    public function getId(): string;
 
     /**
      * Gets list of CSS classes to apply to table.
      *
      * @return string[]
      */
-    public function getCssClasses();
+    public function getCssClasses(): array;
 
     /**
      * Gets colgroups.
      *
      * @return string[]
      */
-    public function getColGroups();
+    public function getColGroups(): array;
 }

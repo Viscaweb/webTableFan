@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Entity\View;
 
 /**
@@ -16,7 +18,7 @@ abstract class AbstractRowModel implements RowModelInterface
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return '';
     }
@@ -26,7 +28,7 @@ abstract class AbstractRowModel implements RowModelInterface
      *
      * @return string
      */
-    public function getRowId()
+    public function getRowId(): string
     {
         return $this->getId();
     }
@@ -36,7 +38,7 @@ abstract class AbstractRowModel implements RowModelInterface
      *
      * @return \string[]
      */
-    public function getCssClasses()
+    public function getCssClasses(): array
     {
         return $this->cssClasses;
     }
@@ -44,7 +46,7 @@ abstract class AbstractRowModel implements RowModelInterface
     /**
      * {@inheritdoc}
      */
-    public function isMobile()
+    public function isMobile(): bool
     {
         return $this->mobile;
     }
@@ -52,7 +54,7 @@ abstract class AbstractRowModel implements RowModelInterface
     /**
      * {@inheritdoc}
      */
-    public function setMobile($isMobile)
+    public function setMobile(bool $isMobile)
     {
         $this->mobile = $isMobile;
 

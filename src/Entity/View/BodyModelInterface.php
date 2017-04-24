@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Entity\View;
 
 /**
@@ -10,24 +12,24 @@ interface BodyModelInterface
     /**
      * @return string
      */
-    public function getId();
+    public function getId(): string;
 
     /**
      * @return string
      */
-    public function getBodyType();
+    public function getBodyType(): string;
 
     /**
      * @param $bodyType
      *
-     * @return mixed
+     * @return $this
      */
-    public function setBodyType($bodyType);
+    public function setBodyType(string $bodyType);
 
     /**
      * @return string[]
      */
-    public function getCssClasses();
+    public function getCssClasses(): array;
 
     /**
      * @param string[] $cssClasses
@@ -39,12 +41,12 @@ interface BodyModelInterface
     /**
      * @return bool
      */
-    public function isMobile();
+    public function isMobile(): bool;
 
     /**
      * @param bool $isMobile
      *
      * @return $this
      */
-    public function setMobile($isMobile);
+    public function setMobile(bool $isMobile);
 }

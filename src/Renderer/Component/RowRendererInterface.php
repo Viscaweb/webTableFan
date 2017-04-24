@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Renderer\Component;
 
 use Visca\WebTableFan\Entity\View\RowModelInterface;
@@ -14,7 +16,7 @@ interface RowRendererInterface extends NodeableInterface
      *
      * @return string
      */
-    public function getIdentifier($rowModel);
+    public function getIdentifier($rowModel): string;
 
     /**
      * @param RowModelInterface $rowModel Model
@@ -23,7 +25,7 @@ interface RowRendererInterface extends NodeableInterface
      *
      * @return array
      */
-    public function getCells($rowModel);
+    public function getCells($rowModel): array;
 
     /**
      * Returns an array of html attributes.
@@ -32,5 +34,5 @@ interface RowRendererInterface extends NodeableInterface
      *
      * @return array
      */
-    public function getAttributes($rowModel);
+    public function getAttributes($rowModel): array;
 }

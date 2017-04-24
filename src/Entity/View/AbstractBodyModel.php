@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Entity\View;
 
 use Visca\WebTableFan\Entity\Code\BodyTypes;
@@ -27,7 +29,7 @@ abstract class AbstractBodyModel implements BodyModelInterface
      * @param string $id
      * @param string $bodyType
      */
-    public function __construct($bodyType = BodyTypes::TBODY)
+    public function __construct(string $bodyType = BodyTypes::TBODY)
     {
         $this->bodyType = $bodyType;
     }
@@ -35,7 +37,7 @@ abstract class AbstractBodyModel implements BodyModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -45,7 +47,7 @@ abstract class AbstractBodyModel implements BodyModelInterface
      *
      * @return $this
      */
-    public function setId($id)
+    public function setId(string $id)
     {
         $this->id = $id;
 
@@ -55,7 +57,7 @@ abstract class AbstractBodyModel implements BodyModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getBodyType()
+    public function getBodyType(): string
     {
         return $this->bodyType;
     }
@@ -63,7 +65,7 @@ abstract class AbstractBodyModel implements BodyModelInterface
     /**
      * {@inheritdoc}
      */
-    public function setBodyType($bodyType)
+    public function setBodyType(string $bodyType)
     {
         $this->bodyType = $bodyType;
 
@@ -73,7 +75,7 @@ abstract class AbstractBodyModel implements BodyModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getCssClasses()
+    public function getCssClasses(): array
     {
         return $this->cssClasses;
     }
@@ -81,7 +83,7 @@ abstract class AbstractBodyModel implements BodyModelInterface
     /**
      * {@inheritdoc}
      */
-    public function setCssClasses($cssClasses)
+    public function setCssClasses($cssClasses): self
     {
         $this->cssClasses = $cssClasses;
 
@@ -91,7 +93,7 @@ abstract class AbstractBodyModel implements BodyModelInterface
     /**
      * {@inheritdoc}
      */
-    public function isMobile()
+    public function isMobile(): bool
     {
         return $this->mobile;
     }
@@ -99,7 +101,7 @@ abstract class AbstractBodyModel implements BodyModelInterface
     /**
      * {@inheritdoc}
      */
-    public function setMobile($isMobile)
+    public function setMobile(bool $isMobile)
     {
         $this->mobile = $isMobile;
 

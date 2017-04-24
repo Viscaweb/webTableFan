@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Renderer;
 
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -90,7 +92,7 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function renderTable(TableModelInterface $tableModel)
+    public function renderTable(TableModelInterface $tableModel): string
     {
         /* Do some optimisations in here if required */
         $this->optimiseTable($tableModel);
@@ -131,7 +133,7 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function renderTableOrEmpty(TableModelInterface $tableModel, $emptyRender)
+    public function renderTableOrEmpty(TableModelInterface $tableModel, $emptyRender): string
     {
         try {
             $html = $this->renderTable($tableModel);
@@ -147,7 +149,7 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
      *
      * @return string
      */
-    public function generateTableResponse(Node $node)
+    public function generateTableResponse(Node $node): string
     {
         /* Inject the version as attribute */
         if ($node instanceof TableNode && is_callable([$node, 'getVersion'])) {

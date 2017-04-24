@@ -2,7 +2,7 @@
 
 namespace Visca\WebTableFan\Tests\Unit;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Visca\WebTableFan\Diff\Entity\NodeAdded;
 use Visca\WebTableFan\Diff\Entity\NodeDeleted;
 use Visca\WebTableFan\Diff\Entity\NodeDifferences;
@@ -14,7 +14,7 @@ use Visca\WebTableFan\Entity\Node\Node;
 /**
  * Class NodeDiffTest.
  */
-class NodeDiffTest extends PHPUnit_Framework_TestCase
+class NodeDiffTest extends TestCase
 {
     /** @var NodeDiff */
     protected $nodeDiff;

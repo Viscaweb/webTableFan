@@ -2,20 +2,20 @@
 
 namespace Visca\WebTableFan\Tests\Unit;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Visca\WebTableFan\Entity\Node\Node;
 
 /**
  * Class NodeTest.
  */
-class NodeTest extends PHPUnit_Framework_TestCase
+class NodeTest extends TestCase
 {
     /**
      * @test
      */
     public function when_adding_child_to_empty_tree_relations_should_be_properly_defined()
     {
-        $parent = new Node('foo');
+        $parent = new Node(3);
 
         $childA = new Node('foo.child');
         $parent->addChild($childA);

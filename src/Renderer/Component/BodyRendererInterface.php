@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Renderer\Component;
 
 use Visca\WebTableFan\Entity\View\BodyModelInterface;
@@ -14,7 +16,7 @@ interface BodyRendererInterface extends NodeableInterface
      *
      * @return string
      */
-    public function getIdentifier($model);
+    public function getIdentifier($model): string;
 
     /**
      * @param BodyModelInterface $body Model
@@ -23,14 +25,14 @@ interface BodyRendererInterface extends NodeableInterface
      *
      * @return array
      */
-    public function getRows($body);
+    public function getRows($body): array;
 
     /**
      * @param BodyModelInterface $model Model
      *
      * @return array
      */
-    public function getAttributes($model);
+    public function getAttributes($model): array;
 
     /**
      * Returns the type of table body. It can be either BodyTypes::TBODY or BodyTypes::THEAD.
@@ -39,5 +41,5 @@ interface BodyRendererInterface extends NodeableInterface
      *
      * @return string
      */
-    public function getBodyType(BodyModelInterface $model);
+    public function getBodyType(BodyModelInterface $model): string;
 }

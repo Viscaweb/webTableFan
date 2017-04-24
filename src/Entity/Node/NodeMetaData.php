@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Entity\Node;
 
 class NodeMetaData
 {
     /** @var string */
     private $type;
+
     /** @var array */
     private $content;
 
@@ -13,7 +16,7 @@ class NodeMetaData
      * @param string $type
      * @param array  $content
      */
-    public function __construct($type, array $content)
+    public function __construct(string $type, array $content)
     {
         $this->type = $type;
         $this->content = $content;
@@ -22,7 +25,7 @@ class NodeMetaData
     /**
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
@@ -30,7 +33,7 @@ class NodeMetaData
     /**
      * @return array
      */
-    public function getContent()
+    public function getContent(): array
     {
         return $this->content;
     }

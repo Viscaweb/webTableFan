@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Renderer\Component;
 
 use Visca\WebTableFan\Entity\View\TableModelInterface;
@@ -14,7 +16,7 @@ interface TableRendererInterface extends NodeableInterface
      *
      * @return string
      */
-    public function getIdentifier($tableModel);
+    public function getIdentifier($tableModel): string;
 
     /**
      * @param TableModelInterface $tableModel Model
@@ -23,19 +25,19 @@ interface TableRendererInterface extends NodeableInterface
      *
      * @return array
      */
-    public function getBodies($tableModel);
+    public function getBodies($tableModel): array;
 
     /**
      * @param TableModelInterface $tableModel Model
      *
      * @return string[]
      */
-    public function getAttributes($tableModel);
+    public function getAttributes($tableModel): array;
 
     /**
      * @param TableModelInterface $tableModel Model
      *
      * @return string[]
      */
-    public function getColGroups($tableModel);
+    public function getColGroups($tableModel): array;
 }

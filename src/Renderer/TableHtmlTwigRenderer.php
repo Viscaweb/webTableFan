@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Renderer;
 
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;

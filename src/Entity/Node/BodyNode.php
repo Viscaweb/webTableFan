@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Entity\Node;
 
 use Visca\WebTableFan\Entity\Code\HtmlAttributes;
@@ -13,7 +15,7 @@ class BodyNode extends Node
      * {@inheritdoc}
      */
     public function __construct(
-        $id,
+        string $id,
         array $attributes = [],
         array $children = []
     ) {

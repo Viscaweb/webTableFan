@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Entity\Node;
 
 use Visca\WebTableFan\Entity\Code\HtmlAttributes;
@@ -19,7 +21,7 @@ class CellNode extends Node
      * @param array  $attributes
      * @param array  $children
      */
-    public function __construct($id, array $attributes = [], array $children = [])
+    public function __construct(string $id, array $attributes = [], array $children = [])
     {
         $this->setType('td');
         $attributes[HtmlAttributes::MARKUPID] = $id;
@@ -30,7 +32,7 @@ class CellNode extends Node
     /**
      * @return string
      */
-    public function getContent()
+    public function getContent(): string
     {
         return $this->content;
     }
@@ -40,7 +42,7 @@ class CellNode extends Node
      *
      * @return CellNode
      */
-    public function setContent($content)
+    public function setContent(string $content)
     {
         $this->content = $content;
 
@@ -50,7 +52,7 @@ class CellNode extends Node
     /**
      * @return string
      */
-    public function getHash()
+    public function getHash(): string
     {
         return md5($this->getContent());
     }

@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Renderer\Component;
 
+use Visca\WebTableFan\Entity\Node\Node;
 use Visca\WebTableFan\Entity\Node\RowNode;
 
 /**
@@ -12,7 +15,7 @@ abstract class AbstractTableRow implements RowRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getIdentifier($rowModel)
+    public function getIdentifier($rowModel): string
     {
         return 'row_'.uniqid(str_replace('\\', '-', get_class($rowModel)), true);
     }
@@ -20,7 +23,7 @@ abstract class AbstractTableRow implements RowRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getNode($rowModel)
+    public function getNode($rowModel): Node
     {
         $node = new RowNode(
             $this->getIdentifier($rowModel),
@@ -33,7 +36,7 @@ abstract class AbstractTableRow implements RowRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getAttributes($rowModel)
+    public function getAttributes($rowModel): array
     {
         return [];
     }

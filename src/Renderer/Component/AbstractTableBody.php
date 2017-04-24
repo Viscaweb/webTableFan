@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Renderer\Component;
 
 use Visca\WebTableFan\Entity\Node\BodyNode;
+use Visca\WebTableFan\Entity\Node\Node;
 use Visca\WebTableFan\Entity\View\BodyModelInterface;
 
 /**
@@ -13,16 +16,15 @@ abstract class AbstractTableBody implements BodyRendererInterface
     /**
      * {@inheritdoc}
      */
-    final public function getIdentifier($model)
+    final public function getIdentifier($model): string
     {
         return $model->getId();
-//        return 'body_'.uniqid(str_replace('\\', '-', get_class($model)), true);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getAttributes($model)
+    public function getAttributes($model): array
     {
         return [];
     }
@@ -30,7 +32,7 @@ abstract class AbstractTableBody implements BodyRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getBodyType(BodyModelInterface $model)
+    public function getBodyType(BodyModelInterface $model): string
     {
         return $model->getBodyType();
     }
@@ -38,7 +40,7 @@ abstract class AbstractTableBody implements BodyRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getNode($bodyModel)
+    public function getNode($bodyModel): Node
     {
         $node = new BodyNode(
             $this->getIdentifier($bodyModel),

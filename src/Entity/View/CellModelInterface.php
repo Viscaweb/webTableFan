@@ -1,8 +1,8 @@
 <?php
 
-namespace Visca\WebTableFan\Entity\View;
+declare(strict_types=1);
 
-use Visca\WebTableFan\Entity\Code\CellTypes;
+namespace Visca\WebTableFan\Entity\View;
 
 /**
  * Class CellModelInterface.
@@ -12,19 +12,19 @@ interface CellModelInterface
     /**
      * @return string
      */
-    public function getId();
+    public function getId(): string;
 
     /**
      * @deprecated Use getId()
      *
      * @return string
      */
-    public function getCellId();
+    public function getCellId(): string;
 
     /**
      * @return int
      */
-    public function getCellColspan();
+    public function getCellColspan(): int;
 
     /**
      * Sets number of columns this cell will span to.
@@ -33,14 +33,14 @@ interface CellModelInterface
      *
      * @return $this
      */
-    public function setCellColspan($cellColspan);
+    public function setCellColspan(int $cellColspan);
 
     /**
      * Returns number of rows this cell will span to.
      *
      * @return int
      */
-    public function getCellRowspan();
+    public function getCellRowspan(): int;
 
     /**
      * Set number of rows this cell will span to.
@@ -49,19 +49,19 @@ interface CellModelInterface
      *
      * @return $this
      */
-    public function setCellRowspan($cellRowspan);
+    public function setCellRowspan(int $cellRowspan);
 
     /**
      * Returns cell type.
      *
      * @return string CellTypes::TD | CellTypes::TH
      */
-    public function getCellType();
+    public function getCellType(): string;
 
     /**
      * @param string $cellType self::TH|self::TD
      *
      * @return $this
      */
-    public function setCellType($cellType);
+    public function setCellType(string $cellType);
 }

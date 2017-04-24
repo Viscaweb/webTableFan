@@ -2,6 +2,7 @@
 
 namespace Visca\WebTableFan\Tests\Unit;
 
+use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_TestCase;
 use RuntimeException;
 use Visca\WebTableFan\Renderer\Chain\TableComponentRendererChain;
@@ -10,7 +11,7 @@ use Visca\WebTableFan\Renderer\Component\TableRendererInterface;
 /**
  * Class TableRendererChainTest.
  */
-class TableRendererChainTest extends PHPUnit_Framework_TestCase
+class TableRendererChainTest extends TestCase
 {
     /** @var mixed */
     private $tableChain;
@@ -23,8 +24,8 @@ class TableRendererChainTest extends PHPUnit_Framework_TestCase
      */
     public function when_no_renderers_defined_should_throw_exception()
     {
-        //        $this->expectException(RuntimeException::class);
-        $this->setExpectedException(RuntimeException::class);
+        $this->expectException(RuntimeException::class);
+//        $this->setExpectedException(RuntimeException::class);
         $this->tableChain->get('foo');
     }
 

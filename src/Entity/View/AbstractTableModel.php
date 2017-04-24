@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Entity\View;
 
 /**
@@ -26,7 +28,7 @@ abstract class AbstractTableModel implements TableModelInterface
      * @param string $id
      * @param string $variantId
      */
-    public function __construct($id, $variantId = 'default')
+    public function __construct(string $id, $variantId = 'default')
     {
         $this->id = 'table-'.$id.'-'.$variantId;
     }
@@ -34,7 +36,7 @@ abstract class AbstractTableModel implements TableModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -42,7 +44,7 @@ abstract class AbstractTableModel implements TableModelInterface
     /**
      * @return string
      */
-    public function getRefreshUrl()
+    public function getRefreshUrl(): string
     {
         return $this->refreshUrl;
     }
@@ -52,7 +54,7 @@ abstract class AbstractTableModel implements TableModelInterface
      *
      * @return $this
      */
-    public function setRefreshUrl($refreshUrl)
+    public function setRefreshUrl(string $refreshUrl)
     {
         $this->refreshUrl = $refreshUrl;
 
@@ -64,7 +66,7 @@ abstract class AbstractTableModel implements TableModelInterface
      *
      * @return \string[]
      */
-    public function getCssClasses()
+    public function getCssClasses(): array
     {
         return $this->cssClasses;
     }
@@ -102,7 +104,7 @@ abstract class AbstractTableModel implements TableModelInterface
      *
      * @return \string[]
      */
-    public function getColGroups()
+    public function getColGroups(): array
     {
         return $this->colGroups;
     }

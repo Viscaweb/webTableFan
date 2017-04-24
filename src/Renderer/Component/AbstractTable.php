@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Renderer\Component;
 
 use Visca\WebTableFan\Entity\Code\HtmlAttributes;
+use Visca\WebTableFan\Entity\Node\Node;
 use Visca\WebTableFan\Entity\Node\TableNode;
 use Visca\WebTableFan\Entity\View\AbstractTableModel;
 use Visca\WebTableFan\Entity\View\TableModelInterface;
@@ -15,7 +18,7 @@ abstract class AbstractTable implements TableRendererInterface
     /**
      * {@inheritdoc}
      */
-    final public function getIdentifier($tableModel)
+    final public function getIdentifier($tableModel): string
     {
         return $tableModel->getId();
     }
@@ -23,7 +26,7 @@ abstract class AbstractTable implements TableRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getNode($tableModel)
+    public function getNode($tableModel): Node
     {
         $attributes = $this->getAttributes($tableModel);
 
@@ -45,7 +48,7 @@ abstract class AbstractTable implements TableRendererInterface
      *
      * @return array
      */
-    public function getAttributes($tableModel)
+    public function getAttributes($tableModel): array
     {
         $attributes = [
 //            'data-name' => $tableModel->getName(), Use only for AJAX RealTime implementation
@@ -60,7 +63,7 @@ abstract class AbstractTable implements TableRendererInterface
      *
      * @return string[]
      */
-    public function getColGroups($tableModel)
+    public function getColGroups($tableModel): array
     {
         return $tableModel->getColGroups();
     }

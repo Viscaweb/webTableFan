@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Renderer\Component;
 
 use Visca\WebTableFan\Entity\Code\HtmlAttributes;
+use Visca\WebTableFan\Entity\Node\Node;
 
 /**
  * Class AbstractTableCell.
@@ -12,7 +15,7 @@ abstract class AbstractTableCell implements CellRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getIdentifier($cell)
+    public function getIdentifier($cell): string
     {
         return 'cell_'.uniqid(str_replace('\\', '-', get_class($cell)), true);
     }
@@ -22,7 +25,7 @@ abstract class AbstractTableCell implements CellRendererInterface
      *
      * @throws \RuntimeException
      */
-    public function getNode($cellModel)
+    public function getNode($cellModel): Node
     {
         throw new \RuntimeException(
             sprintf(
@@ -35,7 +38,7 @@ abstract class AbstractTableCell implements CellRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getCellType($cell)
+    public function getCellType($cell): string
     {
         return $cell->getCellType();
     }
@@ -43,7 +46,7 @@ abstract class AbstractTableCell implements CellRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getAttributes($cellModel)
+    public function getAttributes($cellModel): array
     {
         $attributes = [
             HtmlAttributes::MARKUPID => $this->getIdentifier($cellModel),
@@ -69,7 +72,7 @@ abstract class AbstractTableCell implements CellRendererInterface
      *
      * @return string[]
      */
-    public function getListeners($model)
+    public function getListeners($model): array
     {
         return [];
     }

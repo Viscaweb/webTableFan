@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Visca\WebTableFan\Entity\Node;
 
 /**
@@ -15,7 +17,7 @@ class RowNode extends Node
      * @param array|Node[]    $children
      */
     public function __construct(
-        $id,
+        string $id,
         array $attributes = [],
         array $children = []
     ) {
