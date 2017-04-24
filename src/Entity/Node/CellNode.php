@@ -19,7 +19,7 @@ class CellNode extends Node
      *
      * @param string $id
      * @param array  $attributes
-     * @param array  $children
+     * @param array  $children     @todo Consider remove $children. Never had to inject children in a CellNode
      */
     public function __construct(string $id, array $attributes = [], array $children = [])
     {
