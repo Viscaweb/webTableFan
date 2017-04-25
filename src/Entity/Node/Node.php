@@ -59,6 +59,7 @@ class Node implements Comparable, Listening, Searchable
         $this->attributes = $attributes;
         $this->meta = $meta;
         $this->mobile = false;
+        $this->type = 'DIV';
 
         foreach ($children as $child) {
             $this->addChild($child);
