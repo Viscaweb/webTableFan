@@ -83,15 +83,29 @@ abstract class AbstractCellModel implements CellModelInterface
 
     /**
      * @param string $cellId
+     * @deprecated
      *
      * @return $this
      */
     public function setCellId(string $cellId)
     {
-        $this->id = $cellId;
+        return $this->setId($cellId);
+    }
+
+    /**
+     * @param string $cellId
+     *
+     * @todo Check if we really need this method or setCellId()
+     *
+     * @return AbstractCellModel
+     */
+    public function setId(string $cellId)
+    {
+        $this->cellId = $cellId;
 
         return $this;
     }
+
 
     /**
      * {@inheritdoc}
