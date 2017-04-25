@@ -25,6 +25,7 @@ class CellNode extends Node
     {
         $this->setType('td');
         $attributes[HtmlAttributes::MARKUPID] = $id;
+        $this->content = '';
 
         parent::__construct($id, $attributes, $children);
     }
