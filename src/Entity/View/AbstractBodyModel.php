@@ -32,6 +32,7 @@ abstract class AbstractBodyModel implements BodyModelInterface
     public function __construct(string $bodyType = BodyTypes::TBODY)
     {
         $this->bodyType = $bodyType;
+        $this->cssClasses = [];
     }
 
     /**
