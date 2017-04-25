@@ -58,6 +58,7 @@ class Node implements Comparable, Listening, Searchable
         $this->id = $id;
         $this->attributes = $attributes;
         $this->meta = $meta;
+        $this->mobile = false;
 
         foreach ($children as $child) {
             $this->addChild($child);
