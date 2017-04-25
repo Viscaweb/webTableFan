@@ -33,6 +33,7 @@ abstract class AbstractBodyModel implements BodyModelInterface
     {
         $this->bodyType = $bodyType;
         $this->cssClasses = [];
+        $this->mobile = false;
     }
 
     /**

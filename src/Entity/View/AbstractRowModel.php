@@ -16,6 +16,15 @@ abstract class AbstractRowModel implements RowModelInterface
     protected $mobile;
 
     /**
+     * AbstractRowModel constructor.
+     */
+    public function __construct()
+    {
+        $this->cssClasses = [];
+        $this->mobile = false;
+    }
+
+    /**
      * @return string
      */
     public function getId(): string

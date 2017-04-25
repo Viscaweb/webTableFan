@@ -31,6 +31,8 @@ abstract class AbstractTableModel implements TableModelInterface
     public function __construct(string $id, string $variantId = 'default')
     {
         $this->id = 'table-'.$id.'-'.$variantId;
+        $this->mobile = false;
+        $this->cssClasses = [];
     }
 
     /**
