@@ -80,6 +80,7 @@ abstract class AbstractCellModel implements CellModelInterface
 
     /**
      * @param string $cellId
+     *
      * @deprecated
      *
      * @return $this
@@ -100,7 +101,6 @@ abstract class AbstractCellModel implements CellModelInterface
 
         return $this;
     }
-
 
     /**
      * {@inheritdoc}
