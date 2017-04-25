@@ -64,4 +64,9 @@ interface CellModelInterface
      * @return $this
      */
     public function setCellType(string $cellType);
+
+    /**
+     * @return array
+     */
+    public function getHtmlClass();
 }
