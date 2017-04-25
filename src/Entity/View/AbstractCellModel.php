@@ -105,7 +105,7 @@ abstract class AbstractCellModel implements CellModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getCellColspan(): int
+    public function getCellColspan(): ?int
     {
         return $this->cellColspan;
     }
@@ -113,7 +113,7 @@ abstract class AbstractCellModel implements CellModelInterface
     /**
      * {@inheritdoc}
      */
-    public function setCellColspan(int $cellColspan): self
+    public function setCellColspan(int $cellColspan = null): self
     {
         $this->cellColspan = $cellColspan;
 
@@ -123,7 +123,7 @@ abstract class AbstractCellModel implements CellModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getCellRowspan(): int
+    public function getCellRowspan(): ?int
     {
         return $this->cellRowspan;
     }
@@ -131,7 +131,7 @@ abstract class AbstractCellModel implements CellModelInterface
     /**
      * {@inheritdoc}
      */
-    public function setCellRowspan(int $cellRowspan): self
+    public function setCellRowspan(int $cellRowspan = null): self
     {
         $this->cellRowspan = $cellRowspan;
 

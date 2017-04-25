@@ -24,7 +24,7 @@ interface CellModelInterface
     /**
      * @return int
      */
-    public function getCellColspan(): int;
+    public function getCellColspan(): ?int;
 
     /**
      * Sets number of columns this cell will span to.
@@ -33,14 +33,14 @@ interface CellModelInterface
      *
      * @return $this
      */
-    public function setCellColspan(int $cellColspan);
+    public function setCellColspan(int $cellColspan = null);
 
     /**
      * Returns number of rows this cell will span to.
      *
      * @return int
      */
-    public function getCellRowspan(): int;
+    public function getCellRowspan(): ?int;
 
     /**
      * Set number of rows this cell will span to.
@@ -49,7 +49,7 @@ interface CellModelInterface
      *
      * @return $this
      */
-    public function setCellRowspan(int $cellRowspan);
+    public function setCellRowspan(int $cellRowspan = null);
 
     /**
      * Returns cell type.
