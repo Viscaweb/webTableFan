@@ -12,9 +12,6 @@ use Visca\WebTableFan\Entity\Code\CellTypes;
 abstract class AbstractCellModel implements CellModelInterface
 {
     /** @var string */
-    protected $cellId;
-
-    /** @var string */
     protected $id;
 
     /** @var int */
@@ -95,13 +92,11 @@ abstract class AbstractCellModel implements CellModelInterface
     /**
      * @param string $cellId
      *
-     * @todo Check if we really need this method or setCellId()
-     *
      * @return AbstractCellModel
      */
     public function setId(string $cellId)
     {
-        $this->cellId = $cellId;
+        $this->id = $cellId;
 
         return $this;
     }
