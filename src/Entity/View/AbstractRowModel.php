@@ -53,6 +53,20 @@ abstract class AbstractRowModel implements RowModelInterface
     }
 
     /**
+     * Sets the CSS classes to apply to the table as attribute.
+     *
+     * @param string[] $cssClasses List of css classes to apply.
+     *
+     * @return $this
+     */
+    public function setCssClasses(array $cssClasses = [])
+    {
+        $this->cssClasses = $cssClasses;
+
+        return $this;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function isMobile(): bool
