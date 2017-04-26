@@ -32,6 +32,7 @@ class TableNode extends Node
         $this->setType('table');
         $attributes[HtmlAttributes::MARKUPID] = $id;
         $this->events = $events;
+        $this->colGroup = [];
     }
 
     /**
