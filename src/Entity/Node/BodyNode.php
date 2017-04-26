@@ -23,6 +23,5 @@ class BodyNode extends Node
         parent::__construct($id, $attributes, $children);
         $this->setType(BodyTypes::TBODY);
         $attributes[HtmlAttributes::MARKUPID] = $id;
-
     }
 }
