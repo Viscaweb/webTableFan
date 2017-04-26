@@ -33,6 +33,8 @@ abstract class AbstractTableModel implements TableModelInterface
         $this->id = 'table-'.$id.'-'.$variantId;
         $this->mobile = false;
         $this->cssClasses = [];
+        $this->colGroups = [];
+        $this->refreshUrl = null;
     }
 
     /**
@@ -46,17 +48,17 @@ abstract class AbstractTableModel implements TableModelInterface
     /**
      * @return string
      */
-    public function getRefreshUrl(): string
+    public function getRefreshUrl(): ?string
     {
         return $this->refreshUrl;
     }
 
     /**
-     * @param string $refreshUrl
+     * @param string|null $refreshUrl
      *
      * @return $this
      */
-    public function setRefreshUrl(string $refreshUrl)
+    public function setRefreshUrl(string $refreshUrl = null)
     {
         $this->refreshUrl = $refreshUrl;
 
