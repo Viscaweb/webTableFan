@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Visca\WebTableFan\Entity\Node;
 
+use Visca\WebTableFan\Entity\Code\BodyTypes;
 use Visca\WebTableFan\Entity\Code\HtmlAttributes;
 
 /**
@@ -19,9 +20,9 @@ class BodyNode extends Node
         array $attributes = [],
         array $children = []
     ) {
-        $this->setType('tbody');
+        parent::__construct($id, $attributes, $children);
+        $this->setType(BodyTypes::TBODY);
         $attributes[HtmlAttributes::MARKUPID] = $id;
 
-        parent::__construct($id, $attributes, $children);
     }
 }

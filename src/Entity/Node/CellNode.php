@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Visca\WebTableFan\Entity\Node;
 
+use Visca\WebTableFan\Entity\Code\CellTypes;
 use Visca\WebTableFan\Entity\Code\HtmlAttributes;
 
 /**
@@ -23,11 +24,11 @@ class CellNode extends Node
      */
     public function __construct(string $id, array $attributes = [], array $children = [])
     {
-        $this->setType('td');
+        parent::__construct($id, $attributes, $children);
+
+        $this->setType(CellTypes::TD);
         $attributes[HtmlAttributes::MARKUPID] = $id;
         $this->content = '';
-
-        parent::__construct($id, $attributes, $children);
     }
 
     /**

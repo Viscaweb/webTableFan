@@ -28,11 +28,10 @@ class TableNode extends Node
      */
     public function __construct(string $id, array $attributes = [], array $children = [], $events = [])
     {
+        parent::__construct($id, $attributes, $children);
         $this->setType('table');
         $attributes[HtmlAttributes::MARKUPID] = $id;
         $this->events = $events;
-
-        parent::__construct($id, $attributes, $children);
     }
 
     /**

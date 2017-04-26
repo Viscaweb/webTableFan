@@ -21,8 +21,7 @@ class RowNode extends Node
         array $attributes = [],
         array $children = []
     ) {
-        $this->type = 'tr';
-
         parent::__construct($id, $attributes, $children);
+        $this->type = 'tr';
     }
 }
