@@ -60,9 +60,13 @@ abstract class AbstractTableCell implements CellRendererInterface
             $attributes[HtmlAttributes::ROWSPAN] = $cellModel->getCellRowspan();
         }
 
-        if ($cellModel->isStrongCell()) {
-            $attributes[HtmlAttributes::CSSCLASS] = ' points';
+        if (!empty($cellModel->getHtmlClass())) {
+            $attributes[HtmlAttributes::CSSCLASS] = implode(' ', $cellModel->getHtmlClass());
         }
+
+//        if ($cellModel->isStrongCell()) {
+//            $attributes[HtmlAttributes::CSSCLASS] = ' ';
+//        }
 
         return $attributes;
     }

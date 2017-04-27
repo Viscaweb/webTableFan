@@ -52,7 +52,7 @@ abstract class AbstractTable implements TableRendererInterface
     {
         $attributes = [
 //            'data-name' => $tableModel->getName(), Use only for AJAX RealTime implementation
-            HtmlAttributes::CSSCLASS => $tableModel->getCssClasses(),
+            HtmlAttributes::CSSCLASS => implode(' ', $tableModel->getCssClasses()),
         ];
 
         return $attributes;
