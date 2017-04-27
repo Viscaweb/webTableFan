@@ -66,7 +66,7 @@ abstract class AbstractTableCell implements CellRendererInterface
                 $htmlClass = implode(' ', $cellModel->getHtmlClass());
             }
 
-            $attributes[HtmlAttributes::CSSCLASS] = implode(' ', $htmlClass);
+            $attributes[HtmlAttributes::CSSCLASS] = $htmlClass;
         }
 
 //        if ($cellModel->isStrongCell()) {
