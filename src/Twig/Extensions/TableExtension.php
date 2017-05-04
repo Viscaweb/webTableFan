@@ -32,11 +32,6 @@ class TableExtension extends Twig_Extension
                 [$this, 'renderHtmlAttributes'],
                 ['is_safe' => ['html'], 'needs_environment' => true]
             ),
-//            new \Twig_SimpleFunction(
-//                'widget_panel_attr_plain',
-//                [$this, 'renderPanelAttributesNoPrefix'],
-//                ['is_safe' => ['html'], 'needs_environment' => true]
-//            ),
         ];
     }
 

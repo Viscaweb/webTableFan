@@ -111,9 +111,6 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
             )
         );
 
-        /* Prepare the table for rendering */
-        $this->renderCellsContent($tableNode);
-
         /* Render the final table */
 
         $response = $this->generateTableResponse($tableNode);
@@ -155,6 +152,9 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
         if ($node instanceof TableNode && is_callable([$node, 'getVersion'])) {
             $node->setAttribute('data-version', $node->getVersion());
         }
+
+        /* Prepare the table for rendering */
+        $this->renderCellsContent($node);
 
         /* Set the hash as title in debug mode */
 //        $this->addDebugInformationInTitle($node);
