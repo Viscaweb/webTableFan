@@ -12,10 +12,10 @@ class NodeDifferences
     /** @var string */
     protected $afterTableId;
 
-    /** @var NodeAdded[] */
+    /** @var NodeUpdated[] */
     protected $updated;
 
-    /** @var NodeUpdated[] */
+    /** @var NodeAdded[] */
     protected $added;
 
     /** @var NodeDeleted[] */
