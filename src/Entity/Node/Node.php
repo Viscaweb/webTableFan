@@ -1,6 +1,8 @@
 <?php
 
-namespace Visca\WebTableFan\Entity;
+declare(strict_types=1);
+
+namespace Visca\WebTableFan\Entity\Node;
 
 use Visca\WebTableFan\Entity\Code\HtmlAttributes;
 
@@ -16,6 +18,13 @@ class Node implements Comparable, Listening, Searchable
     /** @var string[] */
     protected $attributes;
 
+    /** @var bool */
+    protected $mobile;
+
+    // ------------------------
+    // Node Relations related
+    // ------------------------
+
     /** @var Node[] */
     protected $children = [];
 
@@ -24,9 +33,6 @@ class Node implements Comparable, Listening, Searchable
 
     /** @var Node|null */
     protected $rightSibling;
-
-    /** @var int */
-    protected $position;
 
     /** @var string[] */
     protected $parentsIds;
@@ -44,7 +50,7 @@ class Node implements Comparable, Listening, Searchable
      * @param NodeMetaData|null $meta
      */
     public function __construct(
-        $id,
+        string $id,
         array $attributes = [],
         array $children = [],
         NodeMetaData $meta = null
@@ -52,6 +58,8 @@ class Node implements Comparable, Listening, Searchable
         $this->id = $id;
         $this->attributes = $attributes;
         $this->meta = $meta;
+        $this->mobile = false;
+        $this->type = 'DIV';
 
         foreach ($children as $child) {
             $this->addChild($child);
@@ -63,7 +71,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return NodeMetaData|null
      */
-    public function getMeta()
+    public function getMeta(): ?NodeMetaData
     {
         return $this->meta;
     }
@@ -71,7 +79,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @param NodeMetaData $meta
      */
-    public function setMeta($meta)
+    public function setMeta(NodeMetadata $meta)
     {
         $this->meta = $meta;
     }
@@ -79,7 +87,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -87,7 +95,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return \string[]
      */
-    public function getAttributes()
+    public function getAttributes(): array
     {
         return $this->attributes;
     }
@@ -98,7 +106,7 @@ class Node implements Comparable, Listening, Searchable
      *
      * @return $this
      */
-    public function setAttribute($name, $value)
+    public function setAttribute(string $name, string $value)
     {
         $this->attributes[$name] = $value;
 
@@ -108,7 +116,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return Node[]
      */
-    public function getChildren()
+    public function getChildren(): array
     {
         return $this->children;
     }
@@ -138,7 +146,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * {@inheritdoc}
      */
-    public function getHash()
+    public function getHash(): string
     {
         $attributesCopy = $this->attributes;
 
@@ -152,7 +160,7 @@ class Node implements Comparable, Listening, Searchable
      *
      * @return string (32 bytes length)
      */
-    public function getTreeHash()
+    public function getTreeHash(): string
     {
         $hash = $this->getHash();
 
@@ -169,7 +177,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return bool
      */
-    public function isRoot()
+    public function isRoot(): bool
     {
         return $this->parent === null;
     }
@@ -177,7 +185,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return bool
      */
-    public function isLeaf()
+    public function isLeaf(): bool
     {
         return empty($this->children);
     }
@@ -185,7 +193,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return bool
      */
-    public function hasChildren()
+    public function hasChildren(): bool
     {
         return !empty($this->children);
     }
@@ -193,31 +201,15 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return null|Node
      */
-    public function getParent()
+    public function getParent(): ?Node
     {
         return $this->parent;
     }
 
     /**
-     * @return int
-     */
-    public function getPosition()
-    {
-        return $this->position;
-    }
-
-    /**
-     * @param int $position
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-    }
-
-    /**
      * @return array
      */
-    public function getParentIds()
+    public function getParentIds(): array
     {
         if ($this->parentsIds === null) {
             $this->parentsIds = [];
@@ -237,7 +229,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
@@ -247,21 +239,37 @@ class Node implements Comparable, Listening, Searchable
      *
      * @return $this
      */
-    public function setType($type)
+    public function setType(string $type)
     {
         $this->type = $type;
 
         return $this;
     }
 
-    public function getContent()
+    /**
+     * @return bool
+     */
+    public function isMobile(): bool
     {
+        return $this->mobile;
+    }
+
+    /**
+     * @param bool $mobile
+     *
+     * @return Node
+     */
+    public function setMobile(bool $mobile)
+    {
+        $this->mobile = $mobile;
+
+        return $this;
     }
 
     /**
      * @return int
      */
-    public function getLevel()
+    public function getLevel(): int
     {
         return count($this->getParentIds());
     }
@@ -269,7 +277,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return Event[]
      */
-    public function getListeningEvents()
+    public function getListeningEvents(): array
     {
         return [];
     }
@@ -277,9 +285,9 @@ class Node implements Comparable, Listening, Searchable
     /**
      * {@inheritdoc}
      */
-    public function findById($id)
+    public function findById($id): Node
     {
-        if ($this->id == $id) {
+        if ($this->id === $id) {
             return $this;
         }
 
@@ -313,9 +321,17 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return null|Node
      */
-    public function getLeftSibling()
+    public function getLeftSibling(): ?Node
     {
         return $this->leftSibling;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasLeftSibling(): bool
+    {
+        return $this->leftSibling !== null;
     }
 
     /**
@@ -323,7 +339,7 @@ class Node implements Comparable, Listening, Searchable
      *
      * @return Node
      */
-    public function setLeftSibling($leftSibling)
+    public function setLeftSibling(Node $leftSibling = null)
     {
         $this->leftSibling = $leftSibling;
 
@@ -333,7 +349,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return null|Node
      */
-    public function getRightSibling()
+    public function getRightSibling(): ?Node
     {
         return $this->rightSibling;
     }
@@ -343,7 +359,7 @@ class Node implements Comparable, Listening, Searchable
      *
      * @return Node
      */
-    public function setRightSibling($rightSibling)
+    public function setRightSibling(Node $rightSibling = null)
     {
         $this->rightSibling = $rightSibling;
 

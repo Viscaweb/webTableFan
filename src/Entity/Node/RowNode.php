@@ -1,6 +1,8 @@
 <?php
 
-namespace Visca\WebTableFan\Entity;
+declare(strict_types=1);
+
+namespace Visca\WebTableFan\Entity\Node;
 
 /**
  * Class RowNode.
@@ -15,12 +17,11 @@ class RowNode extends Node
      * @param array|Node[]    $children
      */
     public function __construct(
-        $id,
+        string $id,
         array $attributes = [],
         array $children = []
     ) {
-        $this->type = 'tr';
-
         parent::__construct($id, $attributes, $children);
+        $this->type = 'tr';
     }
 }

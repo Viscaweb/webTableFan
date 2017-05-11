@@ -1,0 +1,24 @@
+{# Render Table #}
+{% spaceless %}
+<table {{ table_attributes(table.attributes) }}>
+    {% set colGroups = table.colGroup %}
+    {% include './includes/renderColGroups.html.twig' with {groups: colGroups} %}
+
+    {# Render Bodies #}
+    {% for body in table.children %}
+        <{{ body.type }}{{ table_attributes(body.attributes) }}>
+
+        {# Render Rows #}
+        {% for row in body.children %}
+            <tr{{ table_attributes(row.attributes) }}>
+
+                {# Render Cells #}
+                {% for cell in row.children %}
+                    <{{ cell.type }}{{ table_attributes(cell.attributes) }}>{{ cell.content | raw }}</{{ cell.type }}>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </{{ body.type }}>
+    {% endfor %}
+</table>
+{% endspaceless %}

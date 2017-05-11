@@ -1,14 +1,19 @@
 {
-    "name": "viscaweb/webtablefan",
-    "description": "Fine Grain Table Renderer",
-    "type": "library",
-    "require-dev": {
-        "phpunit/phpunit": "^5.0"
-    },
-    "require": {},
-    "autoload": {
-        "psr-4": {
-            "Visca\\WebTableFan\\": "src/"
-        }
+  "name": "viscaweb/webtablefan",
+  "description": "Fine Grain Table Renderer",
+  "type": "library",
+  "minimum-stability": "stable",
+  "require-dev": {
+    "phpunit/phpunit": "~6.1"
+  },
+  "require": {
+    "monolog/monolog": "~1.13.0",
+    "twig/twig": "~1.12",
+    "symfony/event-dispatcher": "^v2.6.11"
+  },
+  "autoload": {
+    "psr-4": {
+      "Visca\\WebTableFan\\": "src/"
     }
+  }
 }

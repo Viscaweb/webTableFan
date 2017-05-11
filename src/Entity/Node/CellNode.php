@@ -1,8 +1,10 @@
 <?php
 
-namespace Visca\WebTableFan\Entity;
+declare(strict_types=1);
 
-use Visca\Bundle\SportBundle\Model\TableSystem\Nodes\Traits\MobileCheckerTrait;
+namespace Visca\WebTableFan\Entity\Node;
+
+use Visca\WebTableFan\Entity\Code\CellTypes;
 use Visca\WebTableFan\Entity\Code\HtmlAttributes;
 
 /**
@@ -10,11 +12,7 @@ use Visca\WebTableFan\Entity\Code\HtmlAttributes;
  */
 class CellNode extends Node
 {
-    use MobileCheckerTrait;
-
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $content;
 
     /**
@@ -22,20 +20,21 @@ class CellNode extends Node
      *
      * @param string $id
      * @param array  $attributes
-     * @param array  $children
+     * @param array  $children   @todo Consider remove $children. Never had to inject children in a CellNode
      */
-    public function __construct($id, array $attributes = [], array $children = [])
+    public function __construct(string $id, array $attributes = [], array $children = [])
     {
-        $this->setType('td');
-        $attributes[HtmlAttributes::MARKUPID] = $id;
-
         parent::__construct($id, $attributes, $children);
+
+        $this->setType(CellTypes::TD);
+        $attributes[HtmlAttributes::MARKUPID] = $id;
+        $this->content = '';
     }
 
     /**
      * @return string
      */
-    public function getContent()
+    public function getContent(): string
     {
         return $this->content;
     }
@@ -45,7 +44,7 @@ class CellNode extends Node
      *
      * @return CellNode
      */
-    public function setContent($content)
+    public function setContent(string $content)
     {
         $this->content = $content;
 
@@ -55,7 +54,7 @@ class CellNode extends Node
     /**
      * @return string
      */
-    public function getHash()
+    public function getHash(): string
     {
         return md5($this->getContent());
     }

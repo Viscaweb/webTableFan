@@ -1,7 +1,10 @@
 <?php
 
-namespace Visca\WebTableFan\Entity;
+declare(strict_types=1);
 
+namespace Visca\WebTableFan\Entity\Node;
+
+use Visca\WebTableFan\Entity\Code\BodyTypes;
 use Visca\WebTableFan\Entity\Code\HtmlAttributes;
 
 /**
@@ -13,13 +16,12 @@ class BodyNode extends Node
      * {@inheritdoc}
      */
     public function __construct(
-        $id,
+        string $id,
         array $attributes = [],
         array $children = []
     ) {
-        $this->setType('tbody');
-        $attributes[HtmlAttributes::MARKUPID] = $id;
-
         parent::__construct($id, $attributes, $children);
+        $this->setType(BodyTypes::TBODY);
+        $attributes[HtmlAttributes::MARKUPID] = $id;
     }
 }
