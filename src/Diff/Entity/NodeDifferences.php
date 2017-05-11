@@ -1,8 +1,8 @@
 <?php
 
-namespace Visca\WebTableFan\Diff\Entity;
+declare(strict_types=1);
 
-use Visca\WebTableFan\Entity\Node\Node;
+namespace Visca\WebTableFan\Diff\Entity;
 
 class NodeDifferences
 {
@@ -30,7 +30,7 @@ class NodeDifferences
      * @param NodeUpdated[] $added
      * @param NodeDeleted[] $deleted
      */
-    public function __construct($tableAId, $tableBId, array $updated = [], array $added = [], array $deleted = [])
+    public function __construct(string $tableAId, string $tableBId, array $updated = [], array $added = [], array $deleted = [])
     {
         $this->beforeTableId = $tableAId;
         $this->afterTableId = $tableBId;
@@ -42,7 +42,7 @@ class NodeDifferences
     /**
      * @return NodeUpdated[]
      */
-    public function getUpdated()
+    public function getUpdated(): array
     {
         return $this->updated;
     }
@@ -50,7 +50,7 @@ class NodeDifferences
     /**
      * @return NodeAdded[]
      */
-    public function getAdded()
+    public function getAdded(): array
     {
         return $this->added;
     }
@@ -58,7 +58,7 @@ class NodeDifferences
     /**
      * @return NodeDeleted[]
      */
-    public function getDeleted()
+    public function getDeleted(): array
     {
         return $this->deleted;
     }
@@ -66,7 +66,7 @@ class NodeDifferences
     /**
      * @return string
      */
-    public function getAfterTableId()
+    public function getAfterTableId(): string
     {
         return $this->afterTableId;
     }

@@ -26,7 +26,7 @@ class NodeDiff
      *
      * @return NodeDifferences
      */
-    public function diff(Node $nodeA, Node $nodeB)
+    public function diff(Node $nodeA, Node $nodeB): NodeDifferences
     {
         $flattenNodeA = $this->flatten($nodeA);
         $flattenNodeB = $this->flatten($nodeB);
@@ -39,7 +39,7 @@ class NodeDiff
      *
      * @return array
      */
-    private function flatten(Node $node)
+    private function flatten(Node $node): array
     {
         $id = $node->getId();
         $values = [$id => $node->getHash()];
@@ -60,7 +60,7 @@ class NodeDiff
      *
      * @return NodeDifferences
      */
-    private function doDiff(Node $nodeA, Node $nodeB, array $set1, array $set2)
+    private function doDiff(Node $nodeA, Node $nodeB, array $set1, array $set2): NodeDifferences
     {
         //array_diff work at value level - not at key level - then the keys will be ignored for comparison
         $valuesInSet1ThatAreNotPresentInSet2 = array_diff_assoc($set1, $set2);
@@ -87,13 +87,13 @@ class NodeDiff
      *
      * @return NodeAdded[]
      */
-    private function getAddedNodes($flattenNodes)
+    private function getAddedNodes(array $flattenNodes): array
     {
         $addedNodes = [];
 
-        foreach ($flattenNodes as $key => $value) {
-            $node = $this->nodesCache[$key];
-            if ($this->parentWasAlreadyInserted($node, array_keys($flattenNodes))) {
+        foreach ($flattenNodes as $id => $value) {
+            $node = $this->nodesCache[$id] ?? null;
+            if ($node === null || $this->parentWasAlreadyInserted($node, array_keys($flattenNodes))) {
                 continue;
             }
 
@@ -109,7 +109,7 @@ class NodeDiff
      *
      * @return NodeUpdated[]
      */
-    private function getUpdatedNodes($flattenNodes)
+    private function getUpdatedNodes(array $flattenNodes): array
     {
         $updatedNodes = [];
 
@@ -126,7 +126,7 @@ class NodeDiff
      *
      * @return NodeDeleted[]
      */
-    public function getDeletedNodes($flattenNodes)
+    public function getDeletedNodes(array $flattenNodes): array
     {
         $deletedNodes = [];
         foreach ($flattenNodes as $key => $value) {
@@ -147,7 +147,7 @@ class NodeDiff
      *
      * @return bool
      */
-    private function parentWasAlreadyInserted(Node $node, $nodeIds)
+    private function parentWasAlreadyInserted(Node $node, array $nodeIds)
     {
         $parentIds = $node->getParentIds();
 
@@ -159,18 +159,16 @@ class NodeDiff
      *
      * @return NodePosition
      */
-    private function calculatePosition(Node $node)
+    private function calculatePosition(Node $node): NodePosition
     {
         if ($node->isRoot()) {
-            return new NodePosition('top', NodePosition::APPEND); //['append', 'top'];
+            return new NodePosition('top', NodePosition::APPEND);
         }
 
         if (!$node->hasLeftSibling()) {
-            //            return ['prepend', $node->getParent()->getId()];
             return new NodePosition($node->getParent()->getId(), NodePosition::PREPEND);
         }
 
-//        return ['after', $node->getLeftSibling()->getId()];
         return new NodePosition($node->getLeftSibling()->getId(), NodePosition::AFTER);
     }
 }
