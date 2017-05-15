@@ -9,6 +9,7 @@ use Visca\WebTableFan\Entity\Code\HtmlAttributes;
 /** Class Node. */
 class Node implements Comparable, Listening, Searchable
 {
+    const UNIQUEID_GLUE = '#';
     /** @var string */
     protected $id;
 
@@ -90,6 +91,15 @@ class Node implements Comparable, Listening, Searchable
     public function getId(): string
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUniqueId(): string
+    {
+        $glue = self::UNIQUEID_GLUE;
+        return $this->id.$glue.implode($glue, $this->getParentIds());
     }
 
     /**
