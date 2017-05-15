@@ -41,7 +41,7 @@ class NodeDiff
      */
     private function flatten(Node $node): array
     {
-        $id = $node->getId();
+        $id = $node->getUniqueId();
         $values = [$id => $node->getHash()];
         $this->nodesCache[$id] = $node;
 
@@ -143,15 +143,24 @@ class NodeDiff
 
     /**
      * @param Node  $node
-     * @param array $nodeIds
+     * @param array $nodeUniqueIds
      *
      * @return bool
      */
-    private function parentWasAlreadyInserted(Node $node, array $nodeIds)
+    private function parentWasAlreadyInserted(Node $node, array $nodeUniqueIds)
     {
+        // nodeIds is a list of Node::getUniqueId() which contains also parent-ids for each node.
+        // we need to clean them to leave only the node-id itselves
+        $cleanedNodeIds = [];
+        foreach ($nodeUniqueIds as $nodeUniqueId) {
+            $tokens = explode(Node::UNIQUEID_GLUE, $nodeUniqueId);
+            $cleanedNodeIds[] = $tokens[0];
+        }
+
         $parentIds = $node->getParentIds();
 
-        return !empty(array_intersect($nodeIds, $parentIds));
+
+        return !empty(array_intersect($cleanedNodeIds, $parentIds));
     }
 
     /**
