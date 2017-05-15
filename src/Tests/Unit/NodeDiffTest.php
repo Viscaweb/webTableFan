@@ -81,9 +81,10 @@ class NodeDiffTest extends TestCase
     /**
      * @test
      */
-    public function when_a_node_has_two_new_depths_of_children_only_parent_node_should_be_added_to_added_list()
+    public function addOnlyParentDifference()
     {
         $treeA = new Node('rootA');
+
         // --------------------------
         $treeB = new Node('rootA');
         $childLevel0 = new Node('child0');
@@ -104,7 +105,7 @@ class NodeDiffTest extends TestCase
     /**
      * @test
      */
-    public function remove_node_from_tree_node_deleted_should_be_detected()
+    public function nodeCanBeDeleted()
     {
         $child = new Node('child');
 
@@ -119,6 +120,39 @@ class NodeDiffTest extends TestCase
             [],
             [],
             [new NodeDeleted($child)],
+            $diff
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function nodeCanBeMoved()
+    {
+        $cell = new Node('cell');
+        $rowA = new Node('row-a');
+        $rowB = new Node('row-b');
+
+        $node = new Node('rootA');
+        $node->addChild($rowA);
+        $node->addChild($rowB);
+
+        $rowA->addChild($cell);
+
+        $nodeAfter = new Node('rootA');
+        $nodeAfter->addChild(new Node('row-a'));
+
+        $cellAfter = new Node('cell');
+        $rowBAfter = new Node('row-b');
+        $rowBAfter->addChild($cellAfter);
+        $nodeAfter->addChild($rowBAfter);
+
+        $diff = $this->nodeDiff->diff($node, $nodeAfter);
+
+        $this->assertDifferences(
+            [new NodeAdded($cellAfter, new NodePosition('row-b', NodePosition::PREPEND))],
+            [],
+            [new NodeDeleted($cell)],
             $diff
         );
     }
