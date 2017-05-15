@@ -159,7 +159,6 @@ class NodeDiff
 
         $parentIds = $node->getParentIds();
 
-
         return !empty(array_intersect($cleanedNodeIds, $parentIds));
     }
 

@@ -99,6 +99,7 @@ class Node implements Comparable, Listening, Searchable
     public function getUniqueId(): string
     {
         $glue = self::UNIQUEID_GLUE;
+
         return $this->id.$glue.implode($glue, $this->getParentIds());
     }
 
