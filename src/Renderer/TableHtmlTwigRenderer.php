@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Visca\WebTableFan\Renderer;
 
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Visca\WebTableFan\Entity\Node\Node;
 use Visca\WebTableFan\NodeBuilder;
 use Visca\WebTableFan\Renderer\Chain\TableComponentRendererChain;
@@ -24,7 +23,6 @@ class TableHtmlTwigRenderer extends AbstractTableHtmlRenderer
     /**
      * TableHtmlTwigRenderer constructor.
      *
-     * @param EventDispatcherInterface    $eventDispatcher
      * @param NodeBuilder                 $nodeBuilder
      * @param TableComponentRendererChain $tableRenderersChain
      * @param TableComponentRendererChain $bodyRenderersChain
@@ -39,7 +37,6 @@ class TableHtmlTwigRenderer extends AbstractTableHtmlRenderer
      * @internal param TableBodiesRendererChain $bodiesRenderersChain
      */
     public function __construct(
-        EventDispatcherInterface $eventDispatcher,
         NodeBuilder $nodeBuilder,
         TableComponentRendererChain $tableRenderersChain,
         TableComponentRendererChain $bodyRenderersChain,
@@ -51,7 +48,6 @@ class TableHtmlTwigRenderer extends AbstractTableHtmlRenderer
         $templateFile
     ) {
         parent::__construct(
-            $eventDispatcher,
             $nodeBuilder,
             $tableRenderersChain,
             $bodyRenderersChain,

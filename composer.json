@@ -8,8 +8,7 @@
   },
   "require": {
     "monolog/monolog": "~1.13.0",
-    "twig/twig": "~1.12",
-    "symfony/event-dispatcher": "^v2.6.11"
+    "twig/twig": "~1.12"
   },
   "autoload": {
     "psr-4": {

@@ -4,7 +4,6 @@ namespace Visca\WebTableFan\Tests\Unit;
 
 use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\EventDispatcher\EventDispatcher;
 use Visca\WebTableFan\NodeBuilder;
 use Visca\WebTableFan\Renderer\TableHtmlTwigRenderer;
 use Visca\WebTableFan\TableBrowser;
@@ -46,7 +45,6 @@ class TableHtmlTwigRendererTest extends TestCase
     public function setUp()
     {
         $chainProvider = new ChainProvider();
-        $eventDispatcher = new EventDispatcher();
         $logger = $this->getMockBuilder(Logger::class)->disableOriginalConstructor()->getMock();
 
         $nodeBuilder = new NodeBuilder(
@@ -63,7 +61,6 @@ class TableHtmlTwigRendererTest extends TestCase
         $twig->addExtension(new TableExtension());
 
         $this->renderer = new TableHtmlTwigRenderer(
-            $eventDispatcher,
             $nodeBuilder,
             $chainProvider->getTableChain(),
             $chainProvider->getBodyRendererChain(),
