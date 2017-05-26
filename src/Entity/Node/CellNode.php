@@ -56,6 +56,6 @@ class CellNode extends Node
      */
     public function getHash(): string
     {
-        return md5($this->getContent());
+        return md5(''.$this->getContent());
     }
 }
