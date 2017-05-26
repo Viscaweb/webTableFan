@@ -20,7 +20,7 @@ class TableRenderedModel
     /**
      * TableRenderedModel constructor.
      *
-     * @param string    $html
+     * @param string         $html
      * @param TableNode|null $tableNode
      */
     public function __construct(string $html, TableNode $tableNode = null)
