@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Visca\WebTableFan\Renderer;
 
 use Visca\WebTableFan\Entity\View\TableModelInterface;
+use Visca\WebTableFan\Model\TableRenderedModel;
 
 /**
  * Class TableRendererInterface.
@@ -16,9 +17,9 @@ interface TableRendererInterface
      *
      * @param TableModelInterface $tableModel
      *
-     * @return string
+     * @return TableRenderedModel
      */
-    public function renderTable(TableModelInterface $tableModel): string;
+    public function renderTable(TableModelInterface $tableModel): TableRenderedModel;
 
     /**
      * Same as `renderTable` but if NoDataFound exception is thrown it renders
@@ -27,7 +28,7 @@ interface TableRendererInterface
      * @param TableModelInterface $tableModel  Table model
      * @param string              $emptyRender Template to render in case of failure.
      *
-     * @return string
+     * @return TableRenderedModel
      */
-    public function renderTableOrEmpty(TableModelInterface $tableModel, $emptyRender): string;
+    public function renderTableOrEmpty(TableModelInterface $tableModel, $emptyRender): TableRenderedModel;
 }

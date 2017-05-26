@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Visca\WebTableFan\Renderer;
 
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Visca\WebTableFan\Entity\Node\CellNode;
 use Visca\WebTableFan\Entity\Node\Node;
 use Visca\WebTableFan\Entity\Node\TableNode;
@@ -15,6 +14,7 @@ use Visca\WebTableFan\Events\TableRenderedEvent;
 use Visca\WebTableFan\NodeBuilder;
 use Visca\WebTableFan\Renderer\Chain\TableComponentRendererChain;
 use Visca\WebTableFan\Renderer\Optimizers\OptimizerInterface;
+use Visca\WebTableFan\Model\TableRenderedModel;
 
 /**
  * Class AbstractTableHtmlRenderer.
@@ -23,9 +23,6 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
 {
     /** @var NodeBuilder */
     protected $nodeBuilder;
-
-    /** @var EventDispatcherInterface */
-    protected $eventDispatcher;
 
     /** @var TableComponentRendererChain */
     protected $tablesRendererChain;
@@ -60,7 +57,6 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
     abstract public function doRenderEmpty($view);
 
     /**
-     * @param EventDispatcherInterface    $eventDispatcher      Event Dispatcher
      * @param NodeBuilder                 $nodeBuilder          Node Builder
      * @param TableComponentRendererChain $tablesRenderersChain Tables Chain
      * @param TableComponentRendererChain $bodiesRendererChain  Bodies Chain
@@ -70,7 +66,6 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
      * @param OptimizerInterface[]        $tableOptimizers      Table optimizers
      */
     public function __construct(
-        EventDispatcherInterface $eventDispatcher,
         NodeBuilder $nodeBuilder,
         TableComponentRendererChain $tablesRenderersChain,
         TableComponentRendererChain $bodiesRendererChain,
@@ -80,7 +75,6 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
         $tableOptimizers
     ) {
         $this->nodeBuilder = $nodeBuilder;
-        $this->eventDispatcher = $eventDispatcher;
         $this->tablesRendererChain = $tablesRenderersChain;
         $this->bodiesRendererChain = $bodiesRendererChain;
         $this->rowsRendererChain = $rowsRendererChain;
@@ -92,7 +86,7 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function renderTable(TableModelInterface $tableModel): string
+    public function renderTable(TableModelInterface $tableModel): TableRenderedModel
     {
         /* Do some optimisations in here if required */
         $this->optimiseTable($tableModel);
@@ -102,7 +96,7 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
          * This method WILL NOT generate the content of each cell.
          */
         $tableNode = $this->nodeBuilder->createNodesFromTable($tableModel);
-
+/*
         $this->eventDispatcher->dispatch(
             Events::TABLE_NODES_CREATED,
             new TableNodesCreatedEvent(
@@ -110,11 +104,11 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
                 $tableNode->getVersion()
             )
         );
-
+*/
         /* Render the final table */
 
-        $response = $this->generateTableResponse($tableNode);
-
+        $html = $this->generateTableResponse($tableNode);
+/*
         $this->eventDispatcher->dispatch(
             Events::TABLE_RENDERED,
             new TableRenderedEvent(
@@ -123,22 +117,23 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
                 $response
             )
         );
-
-        return $response;
+*/
+        return new TableRenderedModel($html, $tableNode);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function renderTableOrEmpty(TableModelInterface $tableModel, $emptyRender): string
+    public function renderTableOrEmpty(TableModelInterface $tableModel, $emptyRender): TableRenderedModel
     {
         try {
-            $html = $this->renderTable($tableModel);
+            $tableRendered = $this->renderTable($tableModel);
         } catch (\Exception $e) {
             $html = $this->doRenderEmpty($emptyRender);
+            $tableRendered = new TableRenderedModel($html);
         }
 
-        return $html;
+        return $tableRendered;
     }
 
     /**
