@@ -13,7 +13,7 @@ class CellFooRenderer implements CellRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getIdentifier($cellModel)
+    public function getIdentifier($cellModel): string
     {
         return $cellModel->getId();
     }
@@ -21,7 +21,7 @@ class CellFooRenderer implements CellRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getCellType($cellModel)
+    public function getCellType($cellModel): string
     {
         // TODO: Implement getCellType() method.
     }
@@ -29,7 +29,7 @@ class CellFooRenderer implements CellRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getContent($cellNode)
+    public function getContent($cellNode): string
     {
         return 'CELL CONTENT';
     }
@@ -37,7 +37,7 @@ class CellFooRenderer implements CellRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getAttributes($cellModel)
+    public function getAttributes($cellModel): array
     {
         return [];
     }

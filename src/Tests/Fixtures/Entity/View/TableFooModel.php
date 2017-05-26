@@ -12,7 +12,7 @@ class TableFooModel implements TableModelInterface
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return 'table-foo';
     }
@@ -30,7 +30,7 @@ class TableFooModel implements TableModelInterface
      *
      * @return string[]
      */
-    public function getCssClasses()
+    public function getCssClasses(): array
     {
         return [];
     }
@@ -40,7 +40,7 @@ class TableFooModel implements TableModelInterface
      *
      * @return string[]
      */
-    public function getColGroups()
+    public function getColGroups(): array
     {
         return [];
     }

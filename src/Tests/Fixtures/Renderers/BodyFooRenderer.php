@@ -15,7 +15,7 @@ class BodyFooRenderer implements BodyRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getIdentifier($model)
+    public function getIdentifier($model): string
     {
         return $model->getId();
     }
@@ -23,7 +23,7 @@ class BodyFooRenderer implements BodyRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getRows($body)
+    public function getRows($body): array
     {
         return [new RowFooModel()];
     }
@@ -31,7 +31,7 @@ class BodyFooRenderer implements BodyRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getAttributes($model)
+    public function getAttributes($model): array
     {
         return [];
     }
@@ -39,7 +39,7 @@ class BodyFooRenderer implements BodyRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getBodyType(BodyModelInterface $model)
+    public function getBodyType(BodyModelInterface $model): string
     {
         return $model->getBodyType();
     }

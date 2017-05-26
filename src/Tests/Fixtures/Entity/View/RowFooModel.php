@@ -9,7 +9,7 @@ use Visca\WebTableFan\Entity\View\AbstractRowModel;
  */
 class RowFooModel extends AbstractRowModel
 {
-    public function getId()
+    public function getId(): string
     {
         return 'row-tag';
     }
@@ -19,7 +19,7 @@ class RowFooModel extends AbstractRowModel
      *
      * @deprecated
      */
-    public function getRowId()
+    public function getRowId(): string
     {
         return $this->getId();
     }
@@ -27,7 +27,7 @@ class RowFooModel extends AbstractRowModel
     /**
      * @return string[]
      */
-    public function getCssClasses()
+    public function getCssClasses(): array
     {
         return [];
     }

@@ -22,7 +22,7 @@ class TableFooRenderer implements TableRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getIdentifier($tableModel)
+    public function getIdentifier($tableModel): string
     {
         return $tableModel->getId();
     }
@@ -30,7 +30,7 @@ class TableFooRenderer implements TableRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getBodies($tableModel)
+    public function getBodies($tableModel): array
     {
         return [new BodyFooModel()];
     }
@@ -38,7 +38,7 @@ class TableFooRenderer implements TableRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getAttributes($tableModel)
+    public function getAttributes($tableModel): array
     {
         return [];
     }
@@ -46,7 +46,7 @@ class TableFooRenderer implements TableRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getColGroups($tableModel)
+    public function getColGroups($tableModel): array
     {
         return $tableModel->getColGroups();
     }

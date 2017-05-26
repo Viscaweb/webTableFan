@@ -3,7 +3,7 @@
 namespace Visca\WebTableFan\Tests\Unit;
 
 use Monolog\Logger;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Visca\WebTableFan\NodeBuilder;
 use Visca\WebTableFan\Renderer\TableHtmlTwigRenderer;
@@ -15,7 +15,7 @@ use Visca\WebTableFan\Twig\Extensions\TableExtension;
 /**
  * Class TableHtmlTwigRendererTest.
  */
-class TableHtmlTwigRendererTest extends PHPUnit_Framework_TestCase
+class TableHtmlTwigRendererTest extends TestCase
 {
     /** @var TableHtmlTwigRenderer */
     private $renderer;
@@ -27,15 +27,15 @@ class TableHtmlTwigRendererTest extends PHPUnit_Framework_TestCase
     {
         $tableModel = new TableFooModel();
 
-        $html = $this->renderer->renderTable($tableModel);
+        $tableRender = $this->renderer->renderTable($tableModel);
 
         $this->assertEquals('<table  id="table-foo"
- data-version="4fa506ff2369b6970137845363dae90f"
+ data-version="f05751cc0ceac616a2bfd431f66abd63"
 ><tbody id="body-tag"
 ><tr id="row-tag"
 ><td id="cell-tag"
 >CELL CONTENT</td><td id="cell-tag"
->CELL CONTENT</td></tr></tbody></table>', $html);
+>CELL CONTENT</td></tr></tbody></table>', $tableRender->getHtml());
     }
 
     // ---------------

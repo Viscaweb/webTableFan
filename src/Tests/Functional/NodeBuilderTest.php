@@ -3,7 +3,7 @@
 namespace Visca\WebTableFan\Tests\Unit;
 
 use Monolog\Logger;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Visca\WebTableFan\Entity\Node\BodyNode;
 use Visca\WebTableFan\Entity\Node\CellNode;
 use Visca\WebTableFan\Entity\Node\RowNode;
@@ -16,7 +16,7 @@ use Visca\WebTableFan\Tests\Fixtures\Entity\View\TableFooModel;
 /**
  * Class NodeBuilderTest.
  */
-class NodeBuilderTest extends PHPUnit_Framework_TestCase
+class NodeBuilderTest extends TestCase
 {
     /** @var NodeBuilder */
     private $nodeBuilder;

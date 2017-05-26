@@ -85,7 +85,7 @@ abstract class AbstractBodyModel implements BodyModelInterface
     /**
      * {@inheritdoc}
      */
-    public function setCssClasses($cssClasses): self
+    public function setCssClasses($cssClasses)
     {
         $this->cssClasses = $cssClasses;
 

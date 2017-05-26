@@ -22,7 +22,7 @@ class RowFooRenderer implements RowRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getIdentifier($rowModel)
+    public function getIdentifier($rowModel): string
     {
         return $rowModel->getRowId();
     }
@@ -30,7 +30,7 @@ class RowFooRenderer implements RowRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getCells($rowModel)
+    public function getCells($rowModel): array
     {
         return [new CellFooModel(), new CellFooModel()];
     }
@@ -38,7 +38,7 @@ class RowFooRenderer implements RowRendererInterface
     /**
      * {@inheritdoc}
      */
-    public function getAttributes($rowModel)
+    public function getAttributes($rowModel): array
     {
         return [];
     }

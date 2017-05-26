@@ -16,7 +16,7 @@ class BodyFooModel extends AbstractBodyModel
     /**
      * {@inheritdoc}
      */
-    public function getId()
+    public function getId(): string
     {
         return 'body-tag';
     }
@@ -24,7 +24,7 @@ class BodyFooModel extends AbstractBodyModel
     /**
      * {@inheritdoc}
      */
-    public function getBodyType()
+    public function getBodyType(): string
     {
         return BodyTypes::TBODY;
     }
@@ -32,7 +32,7 @@ class BodyFooModel extends AbstractBodyModel
     /**
      * {@inheritdoc}
      */
-    public function setBodyType($bodyType)
+    public function setBodyType(string $bodyType)
     {
         $this->bodyType = $bodyType;
     }
@@ -40,7 +40,7 @@ class BodyFooModel extends AbstractBodyModel
     /**
      * {@inheritdoc}
      */
-    public function getCssClasses()
+    public function getCssClasses(): array
     {
         return [];
     }

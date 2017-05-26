@@ -13,7 +13,7 @@ class CellFooModel implements CellModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getId()
+    public function getId(): string
     {
         return 'cell-tag';
     }
@@ -21,7 +21,7 @@ class CellFooModel implements CellModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getCellId()
+    public function getCellId(): string
     {
         return $this->getId();
     }
@@ -29,14 +29,14 @@ class CellFooModel implements CellModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getCellColspan()
+    public function getCellColspan(): int
     {
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setCellColspan($cellColspan)
+    public function setCellColspan(int $cellColspan = null)
     {
         // TODO: Implement setCellColspan() method.
     }
@@ -44,14 +44,14 @@ class CellFooModel implements CellModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getCellRowspan()
+    public function getCellRowspan(): int
     {
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setCellRowspan($cellRowspan)
+    public function setCellRowspan(int $cellRowspan = null)
     {
         // TODO: Implement setCellRowspan() method.
     }
@@ -59,7 +59,7 @@ class CellFooModel implements CellModelInterface
     /**
      * {@inheritdoc}
      */
-    public function getCellType()
+    public function getCellType(): string
     {
         return CellTypes::TD;
     }
@@ -67,8 +67,16 @@ class CellFooModel implements CellModelInterface
     /**
      * {@inheritdoc}
      */
-    public function setCellType($cellType)
+    public function setCellType(string $cellType)
     {
         // TODO: Implement setCellType() method.
+    }
+
+    /**
+     * @return array
+     */
+    public function getHtmlClass()
+    {
+        return [];
     }
 }
