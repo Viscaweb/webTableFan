@@ -11,10 +11,10 @@ use Visca\WebTableFan\Entity\View\TableModelInterface;
 use Visca\WebTableFan\Events\Events;
 use Visca\WebTableFan\Events\TableNodesCreatedEvent;
 use Visca\WebTableFan\Events\TableRenderedEvent;
+use Visca\WebTableFan\Model\TableRenderedModel;
 use Visca\WebTableFan\NodeBuilder;
 use Visca\WebTableFan\Renderer\Chain\TableComponentRendererChain;
 use Visca\WebTableFan\Renderer\Optimizers\OptimizerInterface;
-use Visca\WebTableFan\Model\TableRenderedModel;
 
 /**
  * Class AbstractTableHtmlRenderer.

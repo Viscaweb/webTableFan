@@ -7,7 +7,7 @@ namespace Visca\WebTableFan\Model;
 use Visca\WebTableFan\Entity\Node\Node;
 
 /**
- * Class TableRenderedModel
+ * Class TableRenderedModel.
  */
 class TableRenderedModel
 {
