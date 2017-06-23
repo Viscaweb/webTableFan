@@ -268,7 +268,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @param bool $mobile
      *
-     * @return Node
+     * @return $this
      */
     public function setMobile(bool $mobile)
     {
