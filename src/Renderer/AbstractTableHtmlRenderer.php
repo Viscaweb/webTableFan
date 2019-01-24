@@ -96,28 +96,28 @@ abstract class AbstractTableHtmlRenderer implements TableRendererInterface
          * This method WILL NOT generate the content of each cell.
          */
         $tableNode = $this->nodeBuilder->createNodesFromTable($tableModel);
-/*
-        $this->eventDispatcher->dispatch(
-            Events::TABLE_NODES_CREATED,
-            new TableNodesCreatedEvent(
-                $tableNode,
-                $tableNode->getVersion()
-            )
-        );
-*/
+        /*
+                $this->eventDispatcher->dispatch(
+                    Events::TABLE_NODES_CREATED,
+                    new TableNodesCreatedEvent(
+                        $tableNode,
+                        $tableNode->getVersion()
+                    )
+                );
+        */
         /* Render the final table */
 
         $html = $this->generateTableResponse($tableNode);
-/*
-        $this->eventDispatcher->dispatch(
-            Events::TABLE_RENDERED,
-            new TableRenderedEvent(
-                $tableModel->getId(),
-                $tableNode->getVersion(),
-                $response
-            )
-        );
-*/
+        /*
+                $this->eventDispatcher->dispatch(
+                    Events::TABLE_RENDERED,
+                    new TableRenderedEvent(
+                        $tableModel->getId(),
+                        $tableNode->getVersion(),
+                        $response
+                    )
+                );
+        */
         return new TableRenderedModel($html, $tableNode);
     }
 

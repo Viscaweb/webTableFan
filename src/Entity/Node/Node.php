@@ -137,7 +137,7 @@ class Node implements Comparable, Listening, Searchable
      *
      * @return $this
      */
-    public function addChild(Node $child)
+    public function addChild(self $child)
     {
         $child->setParent($this);
 
@@ -212,7 +212,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return null|Node
      */
-    public function getParent(): ?Node
+    public function getParent(): ?self
     {
         return $this->parent;
     }
@@ -296,7 +296,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * {@inheritdoc}
      */
-    public function findById($id): Node
+    public function findById($id): self
     {
         if ($this->id === $id) {
             return $this;
@@ -314,7 +314,7 @@ class Node implements Comparable, Listening, Searchable
      *
      * @return $this
      */
-    protected function setParent(Node $parent)
+    protected function setParent(self $parent)
     {
         $this->parent = $parent;
 
@@ -332,7 +332,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return null|Node
      */
-    public function getLeftSibling(): ?Node
+    public function getLeftSibling(): ?self
     {
         return $this->leftSibling;
     }
@@ -350,7 +350,7 @@ class Node implements Comparable, Listening, Searchable
      *
      * @return Node
      */
-    public function setLeftSibling(Node $leftSibling = null)
+    public function setLeftSibling(self $leftSibling = null)
     {
         $this->leftSibling = $leftSibling;
 
@@ -360,7 +360,7 @@ class Node implements Comparable, Listening, Searchable
     /**
      * @return null|Node
      */
-    public function getRightSibling(): ?Node
+    public function getRightSibling(): ?self
     {
         return $this->rightSibling;
     }
@@ -370,7 +370,7 @@ class Node implements Comparable, Listening, Searchable
      *
      * @return Node
      */
-    public function setRightSibling(Node $rightSibling = null)
+    public function setRightSibling(self $rightSibling = null)
     {
         $this->rightSibling = $rightSibling;
 
